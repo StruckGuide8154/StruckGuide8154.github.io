@@ -20,6 +20,7 @@ h1 em { color:var(--orange); font-style:normal; }
 .actions { display:flex; align-items:center; gap:26px; margin-top:35px; }
 .text-link { font-weight:700; text-underline-offset:5px; }
 .text-link span { color:var(--orange); margin-left:5px; }
+.demo-link { display:inline-block; margin-left:24px; }
 .trust { display:flex; gap:28px; list-style:none; padding:0; margin:38px 0 0; color:#607172; font-size:13px; }
 .trust li:before { content:"✓"; color:var(--orange); font-weight:800; margin-right:7px; }
 .hero-card { transform:rotate(2deg); filter:drop-shadow(20px 25px 0 rgba(16,42,43,.1)); }
@@ -37,4 +38,4 @@ h1 em { color:var(--orange); font-style:normal; }
 .cta{text-align:center;padding:clamp(80px,10vw,150px) 24px;background:var(--orange);color:#161d1d}.cta .eyebrow{color:#4d2d20}.cta h2{font-size:clamp(42px,6vw,78px);max-width:900px;margin:0 auto 20px;line-height:1.03}.cta>p:not(.eyebrow){font-size:20px}.button-light{background:var(--paper);color:var(--ink);margin-top:20px}.button-light:hover{box-shadow:5px 5px 0 var(--ink)}
 footer{min-height:130px;padding:35px clamp(24px,5vw,72px);display:flex;align-items:center;gap:35px;background:var(--ink);color:white}footer p{margin-right:auto;color:#aebcba}footer>a:last-child{color:var(--lime)}
 @media(max-width:800px){.nav nav>a:not(.button){display:none}.hero,.proof,.package-grid{grid-template-columns:1fr}.hero-card{margin-top:25px}.mock-site{min-height:440px}.proof{gap:60px}.price-card{position:static}.steps{grid-template-columns:1fr}.steps>div{border-top:1px solid #b8c7a3;padding-top:30px}.trust{flex-wrap:wrap;gap:12px 20px}footer{align-items:flex-start;flex-direction:column;gap:12px}footer p{margin:0}.concept{padding:35px}}
-@media(max-width:480px){.nav{height:68px}.brand{font-size:16px}.button-small{font-size:12px}.hero{padding-top:60px}.actions{align-items:flex-start;flex-direction:column}.hero-card{filter:drop-shadow(8px 10px 0 rgba(16,42,43,.1))}.mock-stats{gap:8px}.concept{min-height:400px}.price-card{padding:30px}.price{font-size:68px}}
+@media(max-width:480px){.nav{height:68px}.brand{font-size:16px}.button-small{font-size:12px}.hero{padding-top:60px}.actions{align-items:flex-start;flex-direction:column}.hero-card{filter:drop-shadow(8px 10px 0 rgba(16,42,43,.1))}.mock-stats{gap:8px}.concept{min-height:400px}.price-card{padding:30px}.price{font-size:68px}.demo-link{display:block;margin:16px 0 0}}
