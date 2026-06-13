@@ -1,6 +1,8 @@
-# Northstar Web Studio
+# Rooted Studio
 
 Public sales site for a fixed-scope local business website service.
+
+Live at <https://rooted.cloud/>.
 
 ## Offer
 
