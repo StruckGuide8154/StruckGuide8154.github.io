@@ -1,0 +1,52 @@
+name: Project enquiry
+description: Request a £399 local business website
+title: "Project enquiry: "
+labels: ["enquiry"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for your interest. Please share the essentials below. Do not include passwords, payment details, or other sensitive information.
+  - type: input
+    id: business
+    attributes:
+      label: Business name
+      placeholder: Example Plumbing Ltd
+    validations:
+      required: true
+  - type: input
+    id: current-site
+    attributes:
+      label: Current website or social page
+      placeholder: https://...
+  - type: dropdown
+    id: goal
+    attributes:
+      label: Main goal
+      options:
+        - Get quote requests
+        - Get phone calls
+        - Get bookings
+        - Get store visits
+        - Present the business professionally
+    validations:
+      required: true
+  - type: textarea
+    id: services
+    attributes:
+      label: What do you sell, and where do you operate?
+      placeholder: Services, typical customer, and town/region
+    validations:
+      required: true
+  - type: input
+    id: deadline
+    attributes:
+      label: Preferred launch date
+      placeholder: DD/MM/YYYY
+  - type: checkboxes
+    id: acknowledgement
+    attributes:
+      label: Package acknowledgement
+      options:
+        - label: I understand the launch package is £399, with 50% due before work begins.
+          required: true
