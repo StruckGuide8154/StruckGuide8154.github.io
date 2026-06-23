@@ -3,47 +3,202 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="noindex,nofollow">
-    <title>Duel Referral Link - cromision</title>
-    <meta name="description" content="Duel referral link for adults in non-restricted locations. Check live Duel terms before depositing or playing.">
+    <meta name="robots" content="index,follow">
+    <title>Duel referral link for eligible adults | Rooted</title>
+    <meta name="description" content="Independent Duel referral page for eligible adults already planning to sign up. No bonus, payout, winnings, or eligibility are promised.">
+    <link rel="canonical" href="https://rooted.cloud/duel/">
+    <meta property="og:title" content="Duel referral link for eligible adults already planning to sign up">
+    <meta property="og:description" content="Independent referral page. No bonus, payout, winnings, or eligibility are promised. Check Duel's live terms first.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rooted.cloud/duel/">
+    <meta property="og:image" content="https://rooted.cloud/duel/og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Duel referral link for eligible adults">
+    <meta name="twitter:description" content="Independent referral page. Adults only, non-restricted locations only, check live Duel terms.">
+    <meta name="twitter:image" content="https://rooted.cloud/duel/og.png">
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="./style.css">
+    <script defer src="./script.js"></script>
   </head>
   <body>
+    <header class="site-header">
+      <a class="brand" href="/duel/"><span class="brand-mark">R</span> Stay rooted</a>
+      <nav class="site-nav" aria-label="Duel referral navigation">
+        <a href="/duel/terms-summary/">Terms</a>
+        <a href="/duel/responsible-play/">Responsible play</a>
+        <a href="/duel/faq/">FAQ</a>
+        <a href="/duel/status/">Status</a>
+        <a href="/duel/privacy/">Privacy</a>
+      </nav>
+    </header>
+
     <main class="page">
-      <section class="hero" aria-label="Duel referral">
-        <div class="visual" aria-hidden="true">
-          <div class="chip chip-a"></div>
-          <div class="chip chip-b"></div>
-          <div class="card card-a">A</div>
-          <div class="card card-b">K</div>
+      <div class="notice-bar" role="note">
+        <strong>Adults only.</strong>
+        <span>Use only where Duel is legally available. Do not use from restricted jurisdictions. Duel's live terms override this page.</span>
+      </div>
+
+      <section class="hero" aria-label="Duel referral link">
+        <div class="hero-copy">
+          <p class="eyebrow">Independent referral disclosure</p>
+          <h1>Duel referral link for eligible adults already planning to sign up</h1>
+          <p class="lead">Independent referral page. The link may credit the referrer. No bonus, payout, winnings, or eligibility are promised. Check Duel's live terms before depositing or playing.</p>
+          <div class="hero-actions">
+            <a class="button is-disabled" href="https://duel.com/r/cromision" rel="nofollow sponsored" data-duel-cta aria-disabled="true">Open Duel referral link</a>
+            <a class="button secondary" href="#safety-notes">Read safety and eligibility notes</a>
+          </div>
+          <p class="microcopy">No fake signup angle. No paid signup farming. No self-referrals. No VPN or location abuse. No guaranteed rewards.</p>
         </div>
-        <div class="content">
-          <p class="eyebrow">Independent referral disclosure: this link may credit the referrer.</p>
-          <h1>Duel referral link: cromision</h1>
-          <p class="lead">
-            Use this only if you were already planning to check out Duel. This page is not operated by Duel and does not promise a bonus, payout, winnings, or account eligibility.
-          </p>
-          <a class="cta" href="https://duel.com/r/cromision" rel="nofollow sponsored">Open Duel referral link</a>
-          <p class="fine">
-            Adults only. Do not use from restricted locations, including the UK, US, France, Germany, Netherlands, Australia, UAE, Lithuania, Slovakia, or anywhere Duel is not legally available. Gambling involves risk. Check Duel's current terms before depositing or playing.
-          </p>
+
+        <aside class="ref-card" aria-label="Eligibility gate">
+          <div class="ref-card-inner">
+            <div class="ref-destination">
+              <div>
+                <span>Destination</span>
+                <strong>duel.com/r/cromision</strong>
+              </div>
+              <div>
+                <span>Disclosure</span>
+                <strong>Sponsored referral</strong>
+              </div>
+            </div>
+
+            <form class="gate" aria-label="Age and eligibility confirmation">
+              <label class="gate-check">
+                <input type="checkbox" data-age-check>
+                <span>I confirm I am an adult in my location and I am not self-excluded from gambling.</span>
+              </label>
+
+              <label class="gate-row">
+                <span class="gate-label">Location status</span>
+                <select data-country-select>
+                  <option value="">Select your location</option>
+                  <option value="GB">United Kingdom</option>
+                  <option value="US">United States</option>
+                  <option value="FR">France</option>
+                  <option value="DE">Germany</option>
+                  <option value="NL">Netherlands</option>
+                  <option value="AU">Australia</option>
+                  <option value="AE">United Arab Emirates</option>
+                  <option value="LT">Lithuania</option>
+                  <option value="SK">Slovakia</option>
+                  <option value="OTHER">Somewhere not listed here</option>
+                </select>
+              </label>
+
+              <label class="gate-check">
+                <input type="checkbox" data-terms-check>
+                <span>I understand this page cannot decide eligibility and Duel's live terms are the authority.</span>
+              </label>
+
+              <p class="gate-message" data-gate-message role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section" id="safety-notes">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Eligibility first</p>
+            <h2>Restricted-location warnings appear before the CTA unlocks.</h2>
+          </div>
+          <p>This page does not perform reliable legal eligibility checks. It lists known restricted examples and sends users back to Duel's live terms before any signup decision.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h3>Adults only</h3>
+            <p>Do not use this page if you are under the legal gambling age where you live, self-excluded, or gambling causes harm.</p>
+          </article>
+          <article class="card">
+            <h3>Only where legal</h3>
+            <p>Use Duel only where it is legally available to you. If you are unsure, do not sign up, deposit, or play.</p>
+          </article>
+          <article class="card">
+            <h3>Live terms override</h3>
+            <p>Duel's current site, signup flow, terms, verification requirements, and jurisdiction rules override this independent page.</p>
+          </article>
+        </div>
+
+        <ul class="restricted-list" aria-label="Known restricted examples">
+          <li>United Kingdom</li>
+          <li>United States</li>
+          <li>France</li>
+          <li>Germany</li>
+          <li>Netherlands</li>
+          <li>Australia</li>
+          <li>United Arab Emirates</li>
+          <li>Lithuania</li>
+          <li>Slovakia</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-label="Trust policy">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Referral quality</p>
+            <h2>Built for real, eligible adults already researching Duel.</h2>
+          </div>
+          <p>The goal is a clean referral path, not empty accounts, fake incentives, or claims that imply guaranteed value.</p>
+        </div>
+
+        <div class="grid two">
+          <article class="card">
+            <h3>What this page will not do</h3>
+            <ul>
+              <li>Promise a bonus, payout, winnings, RTP, or account eligibility.</li>
+              <li>Encourage VPN use, location abuse, self-referrals, or fake accounts.</li>
+              <li>Use unsupported celebrity claims, fake scarcity, countdowns, jackpots, or testimonials.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>How referral tracking may work</h3>
+            <p>Referral tracking may require opening the link before account creation. Open the link first only if you were already planning to check Duel, then complete signup only if Duel's live terms work for you.</p>
+          </article>
+        </div>
+
+        <div class="stats" aria-label="Referral disclosures">
+          <div class="stat"><span>Affiliation</span><strong>Independent page</strong></div>
+          <div class="stat"><span>Compensation</span><strong>Referrer may be credited</strong></div>
+          <div class="stat"><span>Guarantees</span><strong>None stated here</strong></div>
         </div>
       </section>
 
-      <section class="facts" aria-label="Referral notes">
-        <article>
-          <h2>Why open the link first?</h2>
-          <p>Referral tracking usually needs to happen before an account is created. Open the referral link first, then continue only if Duel's live terms, location rules, and signup flow work for you.</p>
-        </article>
-        <article>
-          <h2>No fake signup angle</h2>
-          <p>This referral is intended for adults who actually want to try Duel. Self-signups, fake accounts, and paid signup farming are not the goal.</p>
-        </article>
-        <article>
-          <h2>Check terms live</h2>
-          <p>Duel's availability, verification rules, and referral model can change. Treat the live Duel signup flow and terms as the source of truth.</p>
-        </article>
+      <section class="section">
+        <div class="risk-strip">
+          <span class="risk-dot" aria-hidden="true"></span>
+          <div>
+            <span class="risk-label">Gambling risk</span>
+            <p>Gambling can cause financial and personal harm. Do not play if gambling creates stress, debt, secrecy, loss of control, or conflict. Support links are listed on the responsible-play page.</p>
+          </div>
+        </div>
+        <div class="section-actions">
+          <a class="button is-disabled" href="https://duel.com/r/cromision" rel="nofollow sponsored" data-duel-cta aria-disabled="true">Open Duel referral link</a>
+          <a class="button secondary" href="/duel/responsible-play/">Responsible-play notes</a>
+        </div>
       </section>
     </main>
+
+    <div class="modal" data-outbound-modal aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="outbound-title">
+      <div class="modal-card">
+        <h2 id="outbound-title">Before opening Duel</h2>
+        <p>You are leaving Rooted for Duel. Continue only if you are an adult, outside restricted jurisdictions, not self-excluded, and willing to check Duel's live terms before depositing or playing.</p>
+        <div class="modal-actions">
+          <button class="button" type="button" data-modal-continue>Continue to Duel</button>
+          <button class="button secondary" type="button" data-modal-cancel>Stay on this page</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <span>Rooted independent referral page. No affiliation with Duel is claimed.</span>
+      <nav aria-label="Footer navigation">
+        <a href="/duel/terms-summary/">Terms summary</a>
+        <a href="/duel/responsible-play/">Responsible play</a>
+        <a href="/duel/faq/">FAQ</a>
+        <a href="/duel/privacy/">Privacy</a>
+      </nav>
+    </footer>
   </body>
 </html>
