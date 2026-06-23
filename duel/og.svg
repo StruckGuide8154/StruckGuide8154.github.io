@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-  <title id="title">Duel referral link for eligible adults</title>
-  <desc id="desc">Dark Rooted referral preview with adult-only and live-terms disclosure.</desc>
+  <title id="title">Stay rooted Duel referral link</title>
+  <desc id="desc">Dark Rooted referral preview with adult-only and asterisked claims disclosure.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#080a08"/>
@@ -16,11 +16,11 @@
   <rect x="52" y="52" width="1096" height="526" rx="18" fill="none" stroke="#d7ad48" stroke-opacity="0.34" stroke-width="2"/>
   <rect x="84" y="84" width="156" height="50" rx="8" fill="#0f150f" stroke="#d7ad48" stroke-opacity="0.55"/>
   <text x="112" y="118" fill="#f2d37a" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800">ROOTED</text>
-  <text x="84" y="210" fill="#f2d37a" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" letter-spacing="4">ADULTS ONLY · INDEPENDENT REFERRAL</text>
+  <text x="84" y="210" fill="#f2d37a" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" letter-spacing="4">STAY ROOTED · ADULTS ONLY</text>
   <text x="84" y="305" fill="#f4f0e7" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="800">Duel referral link</text>
   <text x="84" y="382" fill="#f4f0e7" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="800">for eligible adults</text>
-  <text x="88" y="456" fill="#b8b7ad" font-family="Arial, Helvetica, sans-serif" font-size="29">No bonus, payout, winnings, or eligibility promised.</text>
-  <text x="88" y="501" fill="#b8b7ad" font-family="Arial, Helvetica, sans-serif" font-size="29">Check Duel's live terms before depositing or playing.</text>
+  <text x="88" y="456" fill="#b8b7ad" font-family="Arial, Helvetica, sans-serif" font-size="29">Fair-play, high-RTP, and guest claims require review.*</text>
+  <text x="88" y="501" fill="#b8b7ad" font-family="Arial, Helvetica, sans-serif" font-size="29">No bonus, winnings, RTP, or eligibility promised here.</text>
   <rect x="827" y="180" width="214" height="296" rx="16" fill="#f4f0e7" transform="rotate(7 934 328)"/>
   <rect x="760" y="205" width="214" height="296" rx="16" fill="#101510" stroke="#d7ad48" stroke-width="4" transform="rotate(-8 867 353)"/>
   <text x="820" y="358" fill="#d7ad48" font-family="Arial, Helvetica, sans-serif" font-size="84" font-weight="800" transform="rotate(-8 867 353)">18+</text>
