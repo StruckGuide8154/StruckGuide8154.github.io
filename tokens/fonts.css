@@ -1,0 +1,11 @@
+/* ============================================================
+   DUEL — Fonts
+   Real Duel uses a proprietary heavy grotesk + a hand-painted
+   brush wordmark. These are the closest Google Fonts matches.
+   SUBSTITUTION — flagged in readme.md. Swap for licensed files
+   when available.
+   - Hanken Grotesk  → display + UI + body (rounded heavy grotesk)
+   - Permanent Marker → "Duel Originals" style brush accent
+   - JetBrains Mono   → provably-fair hashes, crypto amounts, stats
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..900;1,400..800&family=JetBrains+Mono:wght@400;500;600;700&family=Permanent+Marker&display=swap');

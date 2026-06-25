@@ -1,0 +1,87 @@
+/* ============================================================
+   DUEL — Color tokens
+   Sampled from the live product. Deep-navy canvas, electric
+   "blurple" primary, crypto-green for money, and a vivid
+   game-category accent set used across Originals.
+   ============================================================ */
+:root {
+  /* ---- Base navy ramp (the canvas) ---- */
+  --navy-950: #070b23;   /* page background — almost-black indigo */
+  --navy-900: #0a0f29;   /* raised background / sticky chrome */
+  --navy-850: #0f1533;   /* card base */
+  --navy-800: #161d40;   /* card raised / pill */
+  --navy-750: #1f2546;   /* hover surface, input fill */
+  --navy-700: #2a3160;   /* hairline-on-fill / divider strong */
+  --navy-600: #3a4275;   /* disabled fill */
+
+  /* ---- Brand primary: electric blurple ---- */
+  --indigo-700: #2c39c9;
+  --indigo-600: #3647e8;
+  --indigo-500: #4558ff;  /* PRIMARY — the Wallet CTA */
+  --indigo-400: #6b79ff;
+  --indigo-300: #97a2ff;
+  --indigo-glow: rgba(69, 88, 255, 0.45);
+
+  /* ---- Violet (secondary accent / avatars / highlights) ---- */
+  --violet-500: #a76eff;
+  --violet-400: #bd8fff;
+
+  /* ---- Money / fairness / positive ---- */
+  --green-500: #2fd87a;   /* balances, 100% RTP, win, payout */
+  --green-400: #57e89a;
+  --green-bg:  rgba(47, 216, 122, 0.12);
+
+  /* ---- Status ---- */
+  --red-500:   #ff4d5e;   /* loss, danger, "war on fake casinos" */
+  --red-bg:    rgba(255, 77, 94, 0.12);
+  --amber-500: #ffc83d;   /* gold, jackpot, warning */
+  --amber-bg:  rgba(255, 200, 61, 0.14);
+
+  /* ---- Game-category accents (Originals tiles) ---- */
+  --cat-purple: #9d5cff;
+  --cat-gold:   #ffc83d;
+  --cat-teal:   #1fd4c4;
+  --cat-pink:   #ff4d9d;
+  --cat-blue:   #3d8bff;
+  --cat-red:    #ff5a4d;
+
+  /* ---- Text ---- */
+  --text-strong:  #ffffff;
+  --text-default: #e6e9f5;
+  --text-muted:   #a4aac6;   /* cool lavender-gray — subheads */
+  --text-faint:   #6b7299;   /* captions, disabled labels */
+  --text-on-accent:#ffffff;
+  --text-on-light: #070b23;
+
+  /* ---- Lines & overlays ---- */
+  --border:        rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --border-accent: rgba(69, 88, 255, 0.55);
+  --overlay-scrim: rgba(4, 6, 18, 0.72);
+
+  /* ===========================================================
+     SEMANTIC ALIASES — prefer these in components
+     =========================================================== */
+  --surface-page:      var(--navy-950);
+  --surface-raised:    var(--navy-900);
+  --surface-card:      var(--navy-850);
+  --surface-card-2:    var(--navy-800);
+  --surface-hover:     var(--navy-750);
+  --surface-input:     var(--navy-750);
+  --surface-disabled:  var(--navy-600);
+
+  --action-primary:        var(--indigo-500);
+  --action-primary-hover:  var(--indigo-600);
+  --action-primary-press:  var(--indigo-700);
+  --action-glow:           var(--indigo-glow);
+
+  --accent-money:    var(--green-500);
+  --accent-danger:   var(--red-500);
+  --accent-gold:     var(--amber-500);
+  --accent-violet:   var(--violet-500);
+
+  --text-body:       var(--text-default);
+  --text-heading:    var(--text-strong);
+  --text-secondary:  var(--text-muted);
+  --text-caption:    var(--text-faint);
+}

@@ -1,247 +1,218 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="index,follow">
-    <title>Duel referral link for eligible adults | Stay rooted</title>
-    <meta name="description" content="Stay rooted. Independent Duel referral page for eligible adults already planning to sign up. Asterisked claims require live Duel/legal verification.">
-    <link rel="canonical" href="https://rooted.cloud/">
-    <meta property="og:title" content="Stay rooted | Duel referral link">
-    <meta property="og:description" content="Independent referral page for eligible adults. Asterisked claims require live Duel/legal verification.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://rooted.cloud/">
-    <meta property="og:image" content="https://rooted.cloud/duel/og.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Stay rooted | Duel referral link">
-    <meta name="twitter:description" content="Independent referral page for eligible adults. Check live Duel terms first.">
-    <meta name="twitter:image" content="https://rooted.cloud/duel/og.png">
-    <link rel="icon" href="/duel/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="/duel/style.css">
-    <script defer src="/duel/script.js"></script>
-  </head>
-  <body>
-    <header class="site-header">
-      <a class="brand" href="/"><span class="brand-mark">R</span> Stay rooted</a>
-      <nav class="site-nav" aria-label="Duel referral navigation">
-        <a href="/duel/terms-summary/">Terms</a>
-        <a href="/duel/responsible-play/">Responsible play</a>
-        <a href="/duel/faq/">FAQ</a>
-        <a href="/duel/status/">Status</a>
-        <a href="/duel/privacy/">Privacy</a>
-      </nav>
-    </header>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rooted × Duel | Referral Landing</title>
+<meta name="description" content="Rooted referral landing for Duel.">
+<link rel="canonical" href="https://rooted.cloud/">
+<meta property="og:title" content="Rooted × Duel">
+<meta property="og:description" content="Rooted referral landing for Duel.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rooted.cloud/">
+<meta property="og:image" content="https://rooted.cloud/img/header.avif">
+<link rel="icon" href="/duel/favicon.svg" type="image/svg+xml">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Rooted Referral Landing" description="Rooted referral hero — 100% RTP pitch, claim-code card, guest strip. Built from Duel DS components." -->
+<helmet>
+<script src="./ds-base.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700;800;900&family=JetBrains+Mono:wght@500;600&family=Permanent+Marker&display=swap');
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  .rooted-rail::-webkit-scrollbar{display:none}
+</style>
+</helmet>
+<div style="min-height:100vh;background:var(--navy-950);font-family:var(--font-ui);color:var(--text-default)">
 
-    <main class="page">
-      <div class="notice-bar" role="note">
-        <strong>Adults only.</strong>
-        <span>Restricted locations are blocked before the CTA. Asterisked claims require legal/source review and Duel's live terms override this page.</span>
+  <!-- header -->
+  <header style="height:64px;display:flex;align-items:center;gap:12px;padding:0 28px;border-bottom:1px solid var(--border)">
+    <span style="font-family:var(--font-display);font-weight:600;font-size:24px;color:rgba(255,255,255,0.92);letter-spacing:-0.04em">Rooted<span style="color:rgba(120,236,176,0.9)">.</span></span>
+    <span style="font:var(--caption);color:var(--text-faint)">&times; Duel</span>
+    <span style="flex:1"></span>
+    <x-import component-from-global-scope="DuelDesignSystem_908732.Badge" tone="money" size="sm" hint-size="80px,24px">100% RTP</x-import>
+    <x-import component-from-global-scope="DuelDesignSystem_908732.Button" variant="primary" onClick="{{ openReferral }}" hint-size="92px,42px">Sign up</x-import>
+  </header>
+
+  <!-- hero -->
+  <section style="position:relative;padding:118px 28px 30px;min-height:90vh;overflow:hidden;background:var(--navy-950)">
+    <!-- art background, masked to fade into the page navy -->
+    <div style="position:absolute;inset:0;background-image:url('./img/header.avif');background-size:cover;background-position:50% 0%;-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 44%,rgba(0,0,0,0.5) 72%,transparent 96%);mask-image:linear-gradient(to bottom,#000 0%,#000 44%,rgba(0,0,0,0.5) 72%,transparent 96%)"></div>
+    <!-- diagonal scrim so left-hand copy stays legible over the purple keep -->
+    <div style="position:absolute;inset:0;background:linear-gradient(102deg, rgba(7,11,35,0.94) 0%, rgba(7,11,35,0.66) 28%, rgba(7,11,35,0.14) 52%, transparent 66%)"></div>
+    <!-- top/bottom blend into header bar and the section below -->
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(7,11,35,0.6) 0%, transparent 20%, transparent 68%, var(--navy-950) 100%)"></div>
+    <div style="position:relative;width:100%;max-width:1160px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,0.94fr);gap:50px;align-items:start">
+      <div style="max-width:600px">
+        <div style="font:500 12px/1.1 var(--font-ui);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:22px">The fairest casino on earth</div>
+        <h1 style="font-family:var(--font-display);font-weight:600;font-size:clamp(34px,4.8vw,58px);line-height:1.05;letter-spacing:-0.03em;color:rgba(255,255,255,0.95);margin:0 0 20px">100% RTP. Zero house edge.<br><span style="font-weight:600;color:rgba(120,236,176,0.9)">50% back, instantly.</span></h1>
+        <p style="font:400 17px/1.55 var(--font-body);color:rgba(230,233,245,0.6);margin:0 0 34px;max-width:476px">Rooted gets you into Duel — the only casino that gives a fuck. No wagering, no tiers, no soul-draining KYC. Just real math you can verify yourself.</p>
+
+        <!-- single conversion-focused CTA -> referral link, no code shown -->
+        <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start">
+          <a href="https://duel.com/r/cromision" style="display:inline-flex;align-items:center;gap:10px;height:56px;padding:0 32px;white-space:nowrap;border-radius:var(--radius-md);background:var(--green-500);color:var(--navy-950);font:700 16px/1 var(--font-ui);letter-spacing:-0.01em;text-decoration:none;box-shadow:0 10px 34px rgba(47,216,122,0.26);transition:transform var(--dur-fast) var(--ease-out),box-shadow var(--dur-base) var(--ease-out),background var(--dur-base) var(--ease-out)" style-hover="transform:translateY(-2px);background:var(--green-400);box-shadow:0 14px 44px rgba(47,216,122,0.4)">Start today<span style="font-size:19px;line-height:1">&rarr;</span></a>
+          <span style="font:500 13px/1.4 var(--font-ui);color:rgba(255,255,255,0.42)">Your 50% rakeback is applied automatically — nothing to enter.</span>
+        </div>
+
+        <!-- subtle trust row -->
+        <div style="display:flex;gap:44px;margin-top:40px;padding-top:26px;border-top:1px solid rgba(255,255,255,0.08)">
+          <div>
+            <div style="font:500 24px/1 var(--font-display);color:rgba(255,255,255,0.88)">100%</div>
+            <div style="font:500 11px/1.2 var(--font-ui);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:8px">RTP</div>
+          </div>
+          <div>
+            <div style="font:500 24px/1 var(--font-display);color:rgba(255,255,255,0.88)">50%</div>
+            <div style="font:500 11px/1.2 var(--font-ui);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:8px">Rakeback</div>
+          </div>
+          <div>
+            <div style="font:500 24px/1 var(--font-display);color:rgba(255,255,255,0.88)">$10M</div>
+            <div style="font:500 11px/1.2 var(--font-ui);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:8px">Leaderboards</div>
+          </div>
+        </div>
       </div>
 
-      <section class="hero" aria-label="Duel referral link">
-        <div class="hero-copy">
-          <p class="eyebrow">Stay rooted</p>
-          <h1>Duel referral link for eligible adults already planning to sign up</h1>
-          <p class="lead">Independent referral page. The link may credit the referrer. No bonus, payout, winnings, RTP, guest appearance, or eligibility is promised by this page. Check Duel's live terms before depositing or playing.</p>
-          <div class="claim-strip" aria-label="Asterisked positioning claims">
-            <span>Fair-play positioning*</span>
-            <span>High-RTP / 100% RTP claims*</span>
-            <span>Creator and guest claims*</span>
-          </div>
-          <div class="hero-actions">
-            <a class="button is-disabled" href="https://duel.com/r/cromision" rel="nofollow sponsored" data-duel-cta aria-disabled="true">Open Duel referral link</a>
-            <a class="button secondary" href="#safety-notes">Read safety and eligibility notes</a>
-          </div>
-          <p class="microcopy">*Marketing claims need documented legal/source approval before promotion. No fake signup angle, paid signup farming, self-referrals, VPN/location abuse, or guaranteed rewards.</p>
+      <!-- right: looping video + dealers carousel -->
+      <div style="display:flex;flex-direction:column;gap:30px;min-width:0">
+        <div style="position:relative;width:100%;aspect-ratio:16/9;border-radius:26px;overflow:hidden;-webkit-mask-image:linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%), linear-gradient(to bottom, transparent 0%, #000 8%, #000 92%, transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%), linear-gradient(to bottom, transparent 0%, #000 8%, #000 92%, transparent 100%);mask-composite:intersect">
+          <video ref="{{ video }}" src="./img/entertainment.mp4" poster="./img/entertainment-poster.jpg" autoplay loop="true" muted="true" playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></video>
         </div>
 
-        <aside class="ref-card" aria-label="Eligibility gate">
-          <div class="ref-card-inner">
-            <div class="table-visual" aria-hidden="true">
-              <span class="chip">18+</span>
-              <span class="card-face">R</span>
-              <span class="card-face card-face-alt">D</span>
+        <!-- True Entertainment dealers carousel -->
+        <div style="position:relative;width:100%;min-width:0">
+          <div style="position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:16px">
+            <div>
+              <div style="font:500 12px/1.1 var(--font-ui);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:rgba(120,236,176,0.85)">True Entertainment</div>
+              <div style="font:400 13px/1.4 var(--font-body);color:rgba(255,255,255,0.4);margin-top:6px">Bonnie Blue, Mike Tyson &amp; Andrew Tate &mdash; dealing to you live.</div>
             </div>
-            <div class="ref-destination">
-              <div>
-                <span>Destination</span>
-                <strong>duel.com/r/cromision</strong>
-              </div>
-              <div>
-                <span>Disclosure</span>
-                <strong>Sponsored referral</strong>
-              </div>
+            <div style="display:flex;gap:8px;flex:0 0 auto">
+              <button onClick="{{ prev }}" aria-label="Previous dealers" style="width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;padding:0;background:rgba(10,15,41,0.5);border:1px solid rgba(255,255,255,0.14);color:rgba(255,255,255,0.85);font-size:18px;line-height:1;cursor:pointer;transition:background var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out)" style-hover="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.3)">&larr;</button>
+              <button onClick="{{ next }}" aria-label="Next dealers" style="width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;padding:0;background:rgba(10,15,41,0.5);border:1px solid rgba(255,255,255,0.14);color:rgba(255,255,255,0.85);font-size:18px;line-height:1;cursor:pointer;transition:background var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out)" style-hover="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.3)">&rarr;</button>
             </div>
-
-            <form class="gate" aria-label="Age and eligibility confirmation">
-              <label class="gate-check">
-                <input type="checkbox" data-age-check>
-                <span>I confirm I am an adult in my location and I am not self-excluded from gambling.</span>
-              </label>
-
-              <label class="gate-row">
-                <span class="gate-label">Location status</span>
-                <select data-country-select>
-                  <option value="">Select your location</option>
-                  <option value="GB">United Kingdom</option>
-                  <option value="US">United States</option>
-                  <option value="FR">France</option>
-                  <option value="DE">Germany</option>
-                  <option value="NL">Netherlands</option>
-                  <option value="AU">Australia</option>
-                  <option value="AE">United Arab Emirates</option>
-                  <option value="LT">Lithuania</option>
-                  <option value="SK">Slovakia</option>
-                  <option value="OTHER">Somewhere not listed here</option>
-                </select>
-              </label>
-
-              <label class="gate-check">
-                <input type="checkbox" data-terms-check>
-                <span>I understand this page cannot decide eligibility and Duel's live terms are the authority.</span>
-              </label>
-
-              <p class="gate-message" data-gate-message role="status" aria-live="polite"></p>
-            </form>
           </div>
-        </aside>
-      </section>
-
-      <section class="section" id="safety-notes">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Eligibility first</p>
-            <h2>Restricted-location warnings appear before the CTA unlocks.</h2>
+          <div ref="{{ rail }}" class="rooted-rail" onMouseEnter="{{ pause }}" onMouseLeave="{{ resume }}" style="display:flex;gap:12px;overflow-x:auto;scroll-snap-type:none;scrollbar-width:none;padding-bottom:4px">
+            <div style="flex:0 0 132px">
+              <x-import component-from-global-scope="DuelDesignSystem_908732.GuestCard" name="Bonnie Blue" handle="@bonnieblue" color="pink" photo="./img/bonnie-blue.jpg" hint-size="132px,186px"></x-import>
+            </div>
+            <div style="flex:0 0 132px">
+              <x-import component-from-global-scope="DuelDesignSystem_908732.GuestCard" name="Mike Tyson" handle="@miketyson" color="gold" photo="./img/mike-tyson.jpg" hint-size="132px,186px"></x-import>
+            </div>
+            <div style="flex:0 0 132px">
+              <x-import component-from-global-scope="DuelDesignSystem_908732.GuestCard" name="Andrew Tate" handle="@cobratate" color="red" photo="./img/andrew-tate.jpeg" hint-size="132px,186px"></x-import>
+            </div>
+            <div style="flex:0 0 132px">
+              <x-import component-from-global-scope="DuelDesignSystem_908732.GuestCard" name="50 Cent" handle="@50cent" color="violet" photo="./img/50-cent.jpeg" hint-size="132px,186px"></x-import>
+            </div>
+            <div style="flex:0 0 132px">
+              <x-import component-from-global-scope="DuelDesignSystem_908732.GuestCard" name="Nelly" handle="@nelly" color="teal" photo="./img/nelly.jpg" hint-size="132px,186px"></x-import>
+            </div>
+            <div style="flex:0 0 132px">
+              <x-import component-from-global-scope="DuelDesignSystem_908732.GuestCard" name="Clavicular" handle="@clavicular" color="purple" photo="./img/clavicular.jpg" hint-size="132px,186px"></x-import>
+            </div>
+            <div style="flex:0 0 132px">
+              <x-import component-from-global-scope="DuelDesignSystem_908732.GuestCard" name="Monarch" handle="founder" color="purple" photo="./img/monarch.jpg" hint-size="132px,186px"></x-import>
+            </div>
           </div>
-          <p>This page does not perform reliable legal eligibility checks. It lists known restricted examples and sends users back to Duel's live terms before any signup decision.</p>
-        </div>
-
-        <div class="grid">
-          <article class="card">
-            <h3>Adults only</h3>
-            <p>Do not use this page if you are under the legal gambling age where you live, self-excluded, or gambling causes harm.</p>
-          </article>
-          <article class="card">
-            <h3>Only where legal</h3>
-            <p>Use Duel only where it is legally available to you. If you are unsure, do not sign up, deposit, or play.</p>
-          </article>
-          <article class="card">
-            <h3>Live terms override</h3>
-            <p>Duel's current site, signup flow, terms, verification requirements, and jurisdiction rules override this independent page.</p>
-          </article>
-        </div>
-
-        <ul class="restricted-list" aria-label="Known restricted examples">
-          <li>United Kingdom</li>
-          <li>United States</li>
-          <li>France</li>
-          <li>Germany</li>
-          <li>Netherlands</li>
-          <li>Australia</li>
-          <li>United Arab Emirates</li>
-          <li>Lithuania</li>
-          <li>Slovakia</li>
-        </ul>
-      </section>
-
-      <section class="section compact-section" aria-label="Asterisked claims policy">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Claims with asterisks</p>
-            <h2>Sharper copy, with the risky parts marked for legal review.</h2>
-          </div>
-          <p>These lines are written as positioning hooks, not verified facts. They should only be used externally if legal/source review approves them.</p>
-        </div>
-
-        <div class="claim-grid">
-          <article class="claim-card">
-            <span>01</span>
-            <h3>Stay rooted.</h3>
-            <p>Brand line for the Rooted referral page.</p>
-          </article>
-          <article class="claim-card">
-            <span>02</span>
-            <h3>High-RTP / 100% RTP positioning*</h3>
-            <p>*Requires current Duel source verification and must not imply guaranteed winnings, profit, or risk-free play.</p>
-          </article>
-          <article class="claim-card">
-            <span>03</span>
-            <h3>Fair casino positioning*</h3>
-            <p>*Requires legal approval and support from current Duel materials. Avoid absolute “first” or “only” claims unless documented.</p>
-          </article>
-          <article class="claim-card">
-            <span>04</span>
-            <h3>Creator or guest names*</h3>
-            <p>*Do not publish celebrity, creator, or event names as guest/endorsement claims without documented permission or reliable public sourcing.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" aria-label="Trust policy">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Referral quality</p>
-            <h2>Built for real, eligible adults already researching Duel.</h2>
-          </div>
-          <p>The goal is a clean referral path, not empty accounts, fake incentives, or claims that imply guaranteed value.</p>
-        </div>
-
-        <div class="grid two">
-          <article class="card">
-            <h3>What this page will not do</h3>
-            <ul>
-              <li>Promise a bonus, payout, winnings, RTP, or account eligibility.</li>
-              <li>Encourage VPN use, location abuse, self-referrals, or fake accounts.</li>
-              <li>Use unsupported celebrity claims, fake scarcity, countdowns, jackpots, or testimonials.</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>How referral tracking may work</h3>
-            <p>Referral tracking may require opening the link before account creation. Open the link first only if you were already planning to check Duel, then complete signup only if Duel's live terms work for you.</p>
-          </article>
-        </div>
-
-        <div class="stats" aria-label="Referral disclosures">
-          <div class="stat"><span>Affiliation</span><strong>Independent page</strong></div>
-          <div class="stat"><span>Compensation</span><strong>Referrer may be credited</strong></div>
-          <div class="stat"><span>Guarantees</span><strong>None stated here</strong></div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="risk-strip">
-          <span class="risk-dot" aria-hidden="true"></span>
-          <div>
-            <span class="risk-label">Gambling risk</span>
-            <p>Gambling can cause financial and personal harm. Do not play if gambling creates stress, debt, secrecy, loss of control, or conflict. Support links are listed on the responsible-play page.</p>
-          </div>
-        </div>
-        <div class="section-actions">
-          <a class="button is-disabled" href="https://duel.com/r/cromision" rel="nofollow sponsored" data-duel-cta aria-disabled="true">Open Duel referral link</a>
-          <a class="button secondary" href="/duel/responsible-play/">Responsible-play notes</a>
-        </div>
-      </section>
-    </main>
-
-    <div class="modal" data-outbound-modal aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="outbound-title">
-      <div class="modal-card">
-        <h2 id="outbound-title">Before opening Duel</h2>
-        <p>You are leaving Rooted for Duel. Continue only if you are an adult, outside restricted jurisdictions, not self-excluded, and willing to check Duel's live terms before depositing or playing.</p>
-        <div class="modal-actions">
-          <button class="button" type="button" data-modal-continue>Continue to Duel</button>
-          <button class="button secondary" type="button" data-modal-cancel>Stay on this page</button>
         </div>
       </div>
     </div>
+  </section>
 
-    <footer class="site-footer">
-      <span>Rooted independent referral page. No affiliation with Duel is claimed.</span>
-      <nav aria-label="Footer navigation">
-        <a href="/duel/terms-summary/">Terms summary</a>
-        <a href="/duel/responsible-play/">Responsible play</a>
-        <a href="/duel/faq/">FAQ</a>
-        <a href="/duel/privacy/">Privacy</a>
-      </nav>
-    </footer>
-  </body>
+  <!-- Duel Originals -->
+  <section style="max-width:1160px;margin:0 auto;padding:8px 28px 8px">
+    <div style="max-width:620px;margin-bottom:26px">
+      <div style="font:500 12px/1.1 var(--font-ui);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:rgba(120,236,176,0.85);margin-bottom:14px">100% RTP, every game</div>
+      <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(26px,3vw,36px);line-height:1.1;letter-spacing:-0.025em;color:rgba(255,255,255,0.92);margin:0 0 12px">True odds across every Duel Original</h2>
+      <p style="font:400 16px/1.55 var(--font-body);color:rgba(230,233,245,0.55);margin:0">Plinko, Mines, Crash, Dice and more — all run at a verifiable 100% RTP, plus live-dealer Blackjack with a real human at the table.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px">
+      <x-import component-from-global-scope="DuelDesignSystem_908732.GameTile" name="Plinko" color="teal" art="./img/game-plinko.avif" tag="Original" hint-size="100%,260px"></x-import>
+      <x-import component-from-global-scope="DuelDesignSystem_908732.GameTile" name="Mines" color="blue" art="./img/game-mines.avif" tag="Original" hint-size="100%,260px"></x-import>
+      <x-import component-from-global-scope="DuelDesignSystem_908732.GameTile" name="Crash" color="purple" art="./img/game-crash.avif" tag="Original" hint-size="100%,260px"></x-import>
+      <x-import component-from-global-scope="DuelDesignSystem_908732.GameTile" name="Dice" color="purple" art="./img/game-dice.avif" tag="Original" hint-size="100%,260px"></x-import>
+      <x-import component-from-global-scope="DuelDesignSystem_908732.GameTile" name="Blackjack" color="blue" art="./img/game-blackjack.avif" tag="LIVE" hint-size="100%,260px"></x-import>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  rail = React.createRef();
+  video = React.createRef();
+  paused = false;
+
+  async loadVideo() {
+    const v = this.video.current;
+    if (!v) return;
+    try {
+      // fetch the whole file and play from a buffered blob URL — the preview
+      // serve path doesn't support range requests, which blocks normal streaming
+      const res = await fetch('./img/entertainment.mp4');
+      const blob = await res.blob();
+      this.blobUrl = URL.createObjectURL(blob);
+      v.src = this.blobUrl;
+      v.load();
+      v.play().catch(() => {});
+    } catch (e) { /* poster stays */ }
+  }
+
+  componentDidMount() {
+    this.loadVideo();
+    this.timer = setInterval(() => {
+      if (this.paused) return;
+      this.step(1);
+    }, 1000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.timer);
+    if (this.raf) cancelAnimationFrame(this.raf);
+  }
+
+  // smooth tween writing scrollLeft directly (runtime resets behavior:'smooth')
+  tweenTo(target) {
+    const el = this.rail.current;
+    if (!el) return;
+    const max = el.scrollWidth - el.clientWidth;
+    target = Math.max(0, Math.min(target, max));
+    const start = el.scrollLeft;
+    const dist = target - start;
+    if (Math.abs(dist) < 1) { el.scrollLeft = target; return; }
+    const dur = 420, t0 = performance.now();
+    if (this.raf) cancelAnimationFrame(this.raf);
+    const tick = (now) => {
+      const p = Math.min(1, (now - t0) / dur);
+      const e = 1 - Math.pow(1 - p, 3); // easeOutCubic
+      el.scrollLeft = start + dist * e;
+      if (p < 1) this.raf = requestAnimationFrame(tick);
+    };
+    this.raf = requestAnimationFrame(tick);
+  }
+
+  step(dir) {
+    const el = this.rail.current;
+    if (!el) return;
+    const card = 162; // 150 + 12 gap
+    const max = el.scrollWidth - el.clientWidth;
+    let target = el.scrollLeft + dir * card;
+    // loop back to start once we reach (or pass) the end
+    if (dir > 0 && el.scrollLeft >= max - 4) target = 0;
+    else if (dir < 0 && el.scrollLeft <= 4) target = max;
+    this.tweenTo(target);
+  }
+
+  renderVals() {
+    return {
+      openReferral: () => window.open('https://duel.com/r/cromision', '_blank', 'noopener'),
+      rail: this.rail,
+      prev: () => this.step(-1),
+      next: () => this.step(1),
+      pause: () => { this.paused = true; },
+      resume: () => { this.paused = false; },
+    };
+  }
+}
+</script>
+</body>
 </html>

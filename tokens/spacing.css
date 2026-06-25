@@ -1,0 +1,48 @@
+/* ============================================================
+   DUEL — Spacing, sizing & radii
+   4px base grid. Radii are generous and friendly (pills + soft
+   cards), matching the product's rounded chrome.
+   ============================================================ */
+:root {
+  /* ---- Spacing scale (4px base) ---- */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* ---- Radii ---- */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;   /* buttons, inputs */
+  --radius-lg: 18px;   /* cards */
+  --radius-xl: 24px;   /* hero panels, modals */
+  --radius-2xl: 32px;
+  --radius-pill: 999px;
+
+  /* ---- Control heights ---- */
+  --control-sm: 34px;
+  --control-md: 42px;
+  --control-lg: 52px;
+
+  /* ---- Layout ---- */
+  --container-max: 1280px;
+  --gutter: 24px;
+  --header-h: 68px;
+
+  /* ---- Z-index ---- */
+  --z-base: 1;        /* @kind other */
+  --z-sticky: 100;    /* @kind other */
+  --z-overlay: 900;   /* @kind other */
+  --z-modal: 1000;    /* @kind other */
+  --z-toast: 1100;    /* @kind other */
+}
