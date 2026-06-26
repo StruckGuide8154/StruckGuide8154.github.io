@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rooted × Duel | Referral Landing</title>
-<meta name="description" content="Start on Duel through Rooted: 100% RTP games, zero house edge, and 50% rakeback applied automatically. No code needed.">
+<meta name="description" content="Start on Duel through Rooted: 100% RTP games, zero house edge, and the best entertainment applied automatically. No code needed.">
 <link rel="canonical" href="https://rooted.cloud/">
 <meta property="og:title" content="Rooted × Duel">
-<meta property="og:description" content="Start on Duel through Rooted: 100% RTP games, zero house edge, and 50% rakeback applied automatically. No code needed.">
+<meta property="og:description" content="Start on Duel through Rooted: 100% RTP games, zero house edge, and the best entertainment applied automatically. No code needed.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://rooted.cloud/">
 <meta property="og:image" content="https://rooted.cloud/img/header.avif">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Rooted × Duel">
-<meta name="twitter:description" content="100% RTP games, zero house edge, and 50% rakeback applied automatically. No code needed.">
+<meta name="twitter:description" content="100% RTP games, zero house edge, and the best entertainment applied automatically. No code needed.">
 <meta name="twitter:image" content="https://rooted.cloud/img/header.avif">
 <link rel="icon" href="/duel/favicon.svg" type="image/svg+xml">
 <script src="./support.js"></script>
@@ -28,12 +28,220 @@
   *{box-sizing:border-box}
   html,body{margin:0}
   .rooted-rail::-webkit-scrollbar{display:none}
+  @media (max-width: 760px) {
+    html, body {
+      min-height: 100%;
+      height: auto !important;
+      overflow-x: hidden;
+      background: #070b23 !important;
+    }
+    body > div:first-child {
+      min-height: 100% !important;
+      height: auto !important;
+      background: #070b23 !important;
+    }
+    .rooted-shell { background: #070b23 !important; }
+    .rooted-header {
+      height: 68px !important;
+      gap: 9px !important;
+      padding: 0 16px !important;
+      background: rgba(7, 11, 35, 0.94) !important;
+      border-bottom-color: rgba(255,255,255,0.1) !important;
+    }
+    .rooted-header > span:first-child {
+      font-size: 24px !important;
+      letter-spacing: 0 !important;
+      flex: 0 0 auto !important;
+    }
+    .rooted-header > span:nth-child(2) {
+      font-size: 12px !important;
+      white-space: nowrap !important;
+    }
+    .rooted-header .sc-host-x:first-of-type { display: none !important; }
+    .rooted-header .sc-host-x:last-of-type button,
+    .rooted-header .sc-host-x:last-of-type a {
+      height: 46px !important;
+      min-height: 46px !important;
+      padding: 0 18px !important;
+      border-radius: 16px !important;
+      font-size: 15px !important;
+      white-space: nowrap !important;
+    }
+    .rooted-hero {
+      min-height: 0 !important;
+      padding: 0 0 34px !important;
+      overflow: hidden !important;
+      background:
+        radial-gradient(circle at 82% 9%, rgba(69,88,255,0.26), transparent 27rem),
+        linear-gradient(180deg, #070b23 0%, #081335 52%, #070b23 100%) !important;
+    }
+    .rooted-hero-art {
+      inset: 0 0 auto 0 !important;
+      height: 342px !important;
+      background-image: url('./img/header-mobile.avif') !important;
+      background-size: cover !important;
+      background-position: 50% 0% !important;
+      -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 58%, rgba(0,0,0,0.72) 76%, transparent 100%) !important;
+      mask-image: linear-gradient(to bottom, #000 0%, #000 58%, rgba(0,0,0,0.72) 76%, transparent 100%) !important;
+    }
+    .rooted-hero-scrim {
+      height: 430px !important;
+      inset: 0 0 auto 0 !important;
+      background:
+        linear-gradient(to bottom, rgba(7,11,35,0.1) 0%, rgba(7,11,35,0.42) 48%, #070b23 100%),
+        linear-gradient(90deg, rgba(7,11,35,0.9) 0%, rgba(7,11,35,0.18) 74%) !important;
+    }
+    .rooted-hero-blend {
+      height: 430px !important;
+      inset: 0 0 auto 0 !important;
+      background: linear-gradient(to bottom, transparent 0%, transparent 54%, #070b23 100%) !important;
+    }
+    .rooted-hero-inner {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 24px !important;
+      max-width: none !important;
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 272px 18px 0 !important;
+    }
+    .rooted-copy {
+      max-width: none !important;
+      width: 100% !important;
+    }
+    .rooted-eyebrow {
+      margin-bottom: 14px !important;
+      color: rgba(120,236,176,0.86) !important;
+      letter-spacing: 0 !important;
+    }
+    .rooted-title {
+      font-size: 43px !important;
+      line-height: 0.98 !important;
+      letter-spacing: 0 !important;
+      margin-bottom: 18px !important;
+      max-width: 354px !important;
+    }
+    .rooted-title span {
+      display: block !important;
+      margin-top: 8px !important;
+      font-size: 35px !important;
+      line-height: 1.02 !important;
+      letter-spacing: 0 !important;
+      max-width: 330px !important;
+    }
+    .rooted-lede {
+      max-width: none !important;
+      margin-bottom: 26px !important;
+      font-size: 17px !important;
+      line-height: 1.48 !important;
+      color: rgba(230,233,245,0.72) !important;
+    }
+    .rooted-cta { width: 100% !important; gap: 12px !important; }
+    .rooted-cta a {
+      width: 100% !important;
+      height: 58px !important;
+      justify-content: center !important;
+      border-radius: 18px !important;
+      font-size: 17px !important;
+      padding: 0 22px !important;
+    }
+    .rooted-cta span {
+      max-width: 260px !important;
+      color: rgba(230,233,245,0.52) !important;
+    }
+    .rooted-stats {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0,1fr)) !important;
+      gap: 10px !important;
+      margin-top: 28px !important;
+      padding-top: 22px !important;
+    }
+    .rooted-stats > div { min-width: 0 !important; }
+    .rooted-stats > div > div:first-child {
+      font-size: 27px !important;
+      letter-spacing: 0 !important;
+    }
+    .rooted-stats > div > div:last-child {
+      font-size: 10px !important;
+      letter-spacing: 0 !important;
+      overflow-wrap: anywhere !important;
+    }
+    .rooted-media {
+      gap: 20px !important;
+      width: 100% !important;
+    }
+    .rooted-video-card {
+      aspect-ratio: 16 / 10 !important;
+      border-radius: 20px !important;
+      box-shadow: 0 22px 60px rgba(0,0,0,0.45) !important;
+      -webkit-mask-image: none !important;
+      mask-image: none !important;
+    }
+    .rooted-dealer-head {
+      align-items: flex-start !important;
+      margin-bottom: 14px !important;
+    }
+    .rooted-dealer-head > div:first-child { max-width: 250px !important; }
+    .rooted-dealer-head > div:first-child > div:first-child { letter-spacing: 0 !important; }
+    .rooted-dealer-head button {
+      width: 40px !important;
+      height: 40px !important;
+      background: rgba(255,255,255,0.08) !important;
+    }
+    .rooted-rail {
+      gap: 12px !important;
+      margin: 0 -18px !important;
+      padding: 0 18px 6px !important;
+      scroll-snap-type: x proximity !important;
+    }
+    .rooted-rail > div {
+      flex-basis: 142px !important;
+      scroll-snap-align: start !important;
+    }
+    .rooted-games {
+      max-width: none !important;
+      padding: 42px 18px 58px !important;
+    }
+    .rooted-games-copy {
+      max-width: none !important;
+      margin-bottom: 22px !important;
+    }
+    .rooted-games-copy > div:first-child { letter-spacing: 0 !important; }
+    .rooted-games-copy h2 {
+      font-size: 32px !important;
+      line-height: 1.08 !important;
+      letter-spacing: 0 !important;
+    }
+    .rooted-games-copy p {
+      font-size: 16px !important;
+      color: rgba(230,233,245,0.66) !important;
+    }
+    .rooted-game-grid {
+      display: flex !important;
+      gap: 12px !important;
+      overflow-x: auto !important;
+      margin: 0 -18px !important;
+      padding: 0 18px 10px !important;
+      scrollbar-width: none !important;
+    }
+    .rooted-game-grid::-webkit-scrollbar { display: none !important; }
+    .rooted-game-grid > .sc-host-x {
+      display: block !important;
+      flex: 0 0 148px !important;
+    }
+  }
+  @media (max-width: 360px) {
+    .rooted-title { font-size: 38px !important; }
+    .rooted-title span { font-size: 31px !important; }
+    .rooted-header { padding: 0 12px !important; }
+    .rooted-header > span:nth-child(2) { display: none !important; }
+  }
 </style>
 </helmet>
-<div style="min-height:100vh;background:var(--navy-950);font-family:var(--font-ui);color:var(--text-default)">
+<div class="rooted-shell" style="min-height:100vh;background:var(--navy-950);font-family:var(--font-ui);color:var(--text-default)">
 
   <!-- header -->
-  <header style="height:64px;display:flex;align-items:center;gap:12px;padding:0 28px;border-bottom:1px solid var(--border)">
+  <header class="rooted-header" style="height:64px;display:flex;align-items:center;gap:12px;padding:0 28px;border-bottom:1px solid var(--border)">
     <span style="font-family:var(--font-display);font-weight:600;font-size:24px;color:rgba(255,255,255,0.92);letter-spacing:-0.04em">Rooted<span style="color:rgba(120,236,176,0.9)">.</span></span>
     <span style="font:var(--caption);color:var(--text-faint)">&times; Duel</span>
     <span style="flex:1"></span>
@@ -42,34 +250,34 @@
   </header>
 
   <!-- hero -->
-  <section style="position:relative;padding:118px 28px 30px;min-height:90vh;overflow:hidden;background:var(--navy-950)">
+  <section class="rooted-hero" style="position:relative;padding:118px 28px 30px;min-height:90vh;overflow:hidden;background:var(--navy-950)">
     <!-- art background, masked to fade into the page navy -->
-    <div style="position:absolute;inset:0;background-image:url('./img/header.avif');background-size:cover;background-position:50% 0%;-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 44%,rgba(0,0,0,0.5) 72%,transparent 96%);mask-image:linear-gradient(to bottom,#000 0%,#000 44%,rgba(0,0,0,0.5) 72%,transparent 96%)"></div>
+    <div class="rooted-hero-art" style="position:absolute;inset:0;background-image:url('./img/header.avif');background-size:cover;background-position:50% 0%;-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 44%,rgba(0,0,0,0.5) 72%,transparent 96%);mask-image:linear-gradient(to bottom,#000 0%,#000 44%,rgba(0,0,0,0.5) 72%,transparent 96%)"></div>
     <!-- diagonal scrim so left-hand copy stays legible over the purple keep -->
-    <div style="position:absolute;inset:0;background:linear-gradient(102deg, rgba(7,11,35,0.94) 0%, rgba(7,11,35,0.66) 28%, rgba(7,11,35,0.14) 52%, transparent 66%)"></div>
+    <div class="rooted-hero-scrim" style="position:absolute;inset:0;background:linear-gradient(102deg, rgba(7,11,35,0.94) 0%, rgba(7,11,35,0.66) 28%, rgba(7,11,35,0.14) 52%, transparent 66%)"></div>
     <!-- top/bottom blend into header bar and the section below -->
-    <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(7,11,35,0.6) 0%, transparent 20%, transparent 68%, var(--navy-950) 100%)"></div>
-    <div style="position:relative;width:100%;max-width:1160px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,0.94fr);gap:50px;align-items:start">
-      <div style="max-width:600px">
-        <div style="font:500 12px/1.1 var(--font-ui);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:22px">The fairest casino on earth</div>
-        <h1 style="font-family:var(--font-display);font-weight:600;font-size:clamp(34px,4.8vw,58px);line-height:1.05;letter-spacing:-0.03em;color:rgba(255,255,255,0.95);margin:0 0 20px">100% RTP. Zero house edge.<br><span style="font-weight:600;color:rgba(120,236,176,0.9)">50% back, instantly.</span></h1>
-        <p style="font:400 17px/1.55 var(--font-body);color:rgba(230,233,245,0.6);margin:0 0 34px;max-width:476px">Rooted gets you into Duel — the only casino that gives a fuck. No wagering, no tiers, no soul-draining KYC. Just real math you can verify yourself.</p>
+    <div class="rooted-hero-blend" style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(7,11,35,0.6) 0%, transparent 20%, transparent 68%, var(--navy-950) 100%)"></div>
+    <div class="rooted-hero-inner" style="position:relative;width:100%;max-width:1160px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,0.94fr);gap:50px;align-items:start">
+      <div class="rooted-copy" style="max-width:600px">
+        <div class="rooted-eyebrow" style="font:500 12px/1.1 var(--font-ui);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:22px">The fairest casino on earth</div>
+        <h1 class="rooted-title" style="font-family:var(--font-display);font-weight:600;font-size:clamp(34px,4.8vw,58px);line-height:1.05;letter-spacing:-0.03em;color:rgba(255,255,255,0.95);margin:0 0 20px">100% RTP. Zero house edge.<br><span style="font-family:var(--font-brush);font-weight:500;color:rgba(120,236,176,0.9)">The best entertainment.</span></h1>
+        <p class="rooted-lede" style="font:400 17px/1.55 var(--font-body);color:rgba(230,233,245,0.6);margin:0 0 34px;max-width:476px">Rooted gets you into Duel — the only casino that gives a fuck. No wagering, no tiers, no soul-draining KYC. Just real math you can verify yourself.</p>
 
         <!-- single conversion-focused CTA -> referral link, no code shown -->
-        <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start">
+        <div class="rooted-cta" style="display:flex;flex-direction:column;gap:14px;align-items:flex-start">
           <a href="https://duel.com/r/cromision" style="display:inline-flex;align-items:center;gap:10px;height:56px;padding:0 32px;white-space:nowrap;border-radius:var(--radius-md);background:var(--green-500);color:var(--navy-950);font:700 16px/1 var(--font-ui);letter-spacing:-0.01em;text-decoration:none;box-shadow:0 10px 34px rgba(47,216,122,0.26);transition:transform var(--dur-fast) var(--ease-out),box-shadow var(--dur-base) var(--ease-out),background var(--dur-base) var(--ease-out)" style-hover="transform:translateY(-2px);background:var(--green-400);box-shadow:0 14px 44px rgba(47,216,122,0.4)">Start today<span style="font-size:19px;line-height:1">&rarr;</span></a>
-          <span style="font:500 13px/1.4 var(--font-ui);color:rgba(255,255,255,0.42)">Your 50% rakeback is applied automatically — nothing to enter.</span>
+          <span style="font:500 13px/1.4 var(--font-ui);color:rgba(255,255,255,0.42)">The best entertainment is ready automatically — nothing to enter.</span>
         </div>
 
         <!-- subtle trust row -->
-        <div style="display:flex;gap:44px;margin-top:40px;padding-top:26px;border-top:1px solid rgba(255,255,255,0.08)">
+        <div class="rooted-stats" style="display:flex;gap:44px;margin-top:40px;padding-top:26px;border-top:1px solid rgba(255,255,255,0.08)">
           <div>
             <div style="font:500 24px/1 var(--font-display);color:rgba(255,255,255,0.88)">100%</div>
             <div style="font:500 11px/1.2 var(--font-ui);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:8px">RTP</div>
           </div>
           <div>
-            <div style="font:500 24px/1 var(--font-display);color:rgba(255,255,255,0.88)">50%</div>
-            <div style="font:500 11px/1.2 var(--font-ui);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:8px">Rakeback</div>
+            <div style="font:500 24px/1 var(--font-brush);color:rgba(255,255,255,0.88)">Best</div>
+            <div style="font:500 11px/1.2 var(--font-ui);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:8px">Entertainment</div>
           </div>
           <div>
             <div style="font:500 24px/1 var(--font-display);color:rgba(255,255,255,0.88)">$10M</div>
@@ -79,14 +287,14 @@
       </div>
 
       <!-- right: looping video + dealers carousel -->
-      <div style="display:flex;flex-direction:column;gap:30px;min-width:0">
-        <div style="position:relative;width:100%;aspect-ratio:16/9;border-radius:26px;overflow:hidden;-webkit-mask-image:linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%), linear-gradient(to bottom, transparent 0%, #000 8%, #000 92%, transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%), linear-gradient(to bottom, transparent 0%, #000 8%, #000 92%, transparent 100%);mask-composite:intersect">
+      <div class="rooted-media" style="display:flex;flex-direction:column;gap:30px;min-width:0">
+        <div class="rooted-video-card" style="position:relative;width:100%;aspect-ratio:16/9;border-radius:26px;overflow:hidden;-webkit-mask-image:linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%), linear-gradient(to bottom, transparent 0%, #000 8%, #000 92%, transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%), linear-gradient(to bottom, transparent 0%, #000 8%, #000 92%, transparent 100%);mask-composite:intersect">
           <video ref="{{ video }}" src="./img/entertainment.mp4" poster="./img/entertainment-poster.jpg" autoplay loop="true" muted="true" playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></video>
         </div>
 
         <!-- True Entertainment dealers carousel -->
         <div style="position:relative;width:100%;min-width:0">
-          <div style="position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:16px">
+          <div class="rooted-dealer-head" style="position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:16px">
             <div>
               <div style="font:500 12px/1.1 var(--font-ui);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:rgba(120,236,176,0.85)">True Entertainment</div>
               <div style="font:400 13px/1.4 var(--font-body);color:rgba(255,255,255,0.4);margin-top:6px">Bonnie Blue, Mike Tyson &amp; Andrew Tate &mdash; dealing to you live.</div>
@@ -125,13 +333,13 @@
   </section>
 
   <!-- Duel Originals -->
-  <section style="max-width:1160px;margin:0 auto;padding:8px 28px 8px">
-    <div style="max-width:620px;margin-bottom:26px">
+  <section class="rooted-games" style="max-width:1160px;margin:0 auto;padding:8px 28px 8px">
+    <div class="rooted-games-copy" style="max-width:620px;margin-bottom:26px">
       <div style="font:500 12px/1.1 var(--font-ui);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:rgba(120,236,176,0.85);margin-bottom:14px">100% RTP, every game</div>
       <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(26px,3vw,36px);line-height:1.1;letter-spacing:-0.025em;color:rgba(255,255,255,0.92);margin:0 0 12px">True odds across every Duel Original</h2>
       <p style="font:400 16px/1.55 var(--font-body);color:rgba(230,233,245,0.55);margin:0">Plinko, Mines, Crash, Dice and more — all run at a verifiable 100% RTP, plus live-dealer Blackjack with a real human at the table.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px">
+    <div class="rooted-game-grid" style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px">
       <x-import component-from-global-scope="DuelDesignSystem_908732.GameTile" name="Plinko" color="teal" art="./img/game-plinko.avif" tag="Original" hint-size="100%,260px"></x-import>
       <x-import component-from-global-scope="DuelDesignSystem_908732.GameTile" name="Mines" color="blue" art="./img/game-mines.avif" tag="Original" hint-size="100%,260px"></x-import>
       <x-import component-from-global-scope="DuelDesignSystem_908732.GameTile" name="Crash" color="purple" art="./img/game-crash.avif" tag="Original" hint-size="100%,260px"></x-import>

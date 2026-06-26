@@ -772,7 +772,7 @@ try { (() => {
  */
 function ReferralCodeCard({
   code = 'HELLAGOOD',
-  perks = ['50% instant rakeback', '100% RTP Originals', '$10M monthly leaderboards'],
+  perks = ['The best entertainment', '100% RTP Originals', '$10M monthly leaderboards'],
   onClaim,
   style = {}
 }) {
@@ -1564,8 +1564,8 @@ function HomeScreen({
     accent: "money"
   }), /*#__PURE__*/React.createElement(StatTile, {
     align: "center",
-    value: "50%",
-    label: "Instant rakeback",
+    value: "Best",
+    label: "Entertainment",
     accent: "primary"
   }), /*#__PURE__*/React.createElement(StatTile, {
     align: "center",
@@ -1786,7 +1786,7 @@ function CrashScreen({
       display: 'flex',
       gap: 8
     }
-  }, /*#__PURE__*/React.createElement("span", null, "\u26A1"), " 50% rakeback credited instantly, win or lose.")), /*#__PURE__*/React.createElement(Card, {
+  }, /*#__PURE__*/React.createElement("span", null, "\u26A1"), " The best entertainment is ready instantly.")), /*#__PURE__*/React.createElement(Card, {
     padding: "none",
     style: {
       overflow: 'hidden'
@@ -2311,7 +2311,7 @@ function RootedHero({
     style: {
       color: 'var(--green-500)'
     }
-  }, "50% back, instantly.")), /*#__PURE__*/React.createElement("p", {
+  }, "The best entertainment.")), /*#__PURE__*/React.createElement("p", {
     style: {
       font: 'var(--body-lg)',
       color: 'var(--text-muted)',
@@ -2329,8 +2329,8 @@ function RootedHero({
     label: "RTP",
     accent: "money"
   }), /*#__PURE__*/React.createElement(StatTile, {
-    value: "50%",
-    label: "Rakeback",
+    value: "Best",
+    label: "Entertainment",
     accent: "primary"
   }), /*#__PURE__*/React.createElement(StatTile, {
     value: "$10M",
@@ -2351,8 +2351,8 @@ function HowItWorks() {
     d: 'Crash, Mines, Dice, Blackjack — Duel Originals with zero house edge.'
   }, {
     n: '03',
-    t: 'Get 50% rakeback',
-    d: 'Half the house edge back on every bet, win or lose, credited instantly.'
+    t: 'Get the best entertainment',
+    d: 'Duel puts the action first with Originals, live guests, and zero house edge.'
   }];
   return /*#__PURE__*/React.createElement("section", {
     style: {
@@ -2473,7 +2473,7 @@ function RootedFooterCTA({
       fontFamily: 'var(--font-mono)',
       color: 'var(--green-400)'
     }
-  }, "HELLAGOOD"), " \xB7 50% rakeback \xB7 100% RTP."), /*#__PURE__*/React.createElement(Button, {
+  }, "HELLAGOOD"), " \xB7 The best entertainment \xB7 100% RTP."), /*#__PURE__*/React.createElement(Button, {
     size: "lg",
     variant: "success",
     onClick: () => go('dashboard')

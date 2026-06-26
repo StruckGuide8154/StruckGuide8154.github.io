@@ -1,7 +1,7 @@
 /* ============================================================
    DUEL — Typography tokens
    Heavy rounded grotesk for everything UI; brush for the
-   "Originals" wink; mono for fairness/crypto data.
+   "Originals" wink; mono token follows the brush treatment.
    ============================================================ */
 :root {
   /* ---- Families ---- */
@@ -9,7 +9,7 @@
   --font-ui:      'Hanken Grotesk', system-ui, -apple-system, sans-serif;
   --font-body:    'Hanken Grotesk', system-ui, -apple-system, sans-serif;
   --font-brush:   'Permanent Marker', 'Hanken Grotesk', cursive;  /* "Duel Originals" accent */
-  --font-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --font-mono:    'Permanent Marker', 'JetBrains Mono', ui-monospace, monospace;
 
   /* ---- Weights ---- */
   --fw-regular: 400; /* @kind font */
@@ -42,7 +42,7 @@
   --eyebrow:  800 12px/1.1 var(--font-ui);   /* uppercase tracked */
   --caption:  500 12px/1.4 var(--font-body);
 
-  /* ---- Mono (hashes, multipliers, crypto amounts) ---- */
+  /* ---- Mono token (using brush styling for this landing) ---- */
   --mono-lg: 600 18px/1.3 var(--font-mono);
   --mono-md: 500 14px/1.4 var(--font-mono);
   --mono-sm: 500 12px/1.4 var(--font-mono);
