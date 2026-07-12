@@ -16,4 +16,9 @@
   window.AGG={partnerId:()=>DEFAULT_PARTNER,chatPartnerId:()=>DEFAULT_PARTNER,command,headers,getSid:()=>guestSid,userSid:()=>userSid,userNick:()=>userNick,focusPanel:()=>{},selectedPanel:()=>null};
   document.getElementById('connect').addEventListener('click',login);document.getElementById('token').addEventListener('keydown',e=>{if(e.key==='Enter')login()});document.getElementById('sound').addEventListener('click',()=>{if(!player)return;try{player.unmute();player.setVolume(1);document.getElementById('sound').textContent='Sound on'}catch(e){}});
   startFeed().then(mountChat);
+  // Direct hand-off: a fresh token can arrive via ?token=… (or #token=…) so a
+  // bookmarklet on duel.com can mint and open this page in one step — no
+  // localhost, and the token is never routed through the consuming token list.
+  // Strip it from the address bar afterwards so it isn't left in history.
+  (function(){var q=new URLSearchParams(location.search).get('token')||new URLSearchParams((location.hash||'').replace(/^#/,'')).get('token');if(!q)return;var el=document.getElementById('token');if(el)el.value=q.trim();try{history.replaceState(null,'',location.pathname)}catch(e){}login();})();
 })();
