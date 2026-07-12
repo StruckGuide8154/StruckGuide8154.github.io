@@ -38,20 +38,28 @@
         <details class="bmk">
           <summary>Get your token in one click →</summary>
           <div class="bmk-body">
-            <p class="bmk-lead">Skip the copy-paste: save the bookmarklet once, then a single click on any
-              logged-in duel.com tab signs you in here as your own account.</p>
-            <p><strong>1.</strong> Drag this button to your bookmarks bar
-              (or right-click it → <em>Bookmark link…</em>):</p>
-            <div><a id="bmk" class="bmk-btn" href="#" draggable="true">🎰 Chat on Rooted</a></div>
-            <p class="bmk-note">Can’t drag it? Create a new bookmark and paste this as the address / URL:</p>
+            <p class="bmk-lead">Drag the bookmarklet that matches where you play to your bookmarks bar once,
+              then a single click signs you in here as your own account.</p>
+
+            <p><strong>Duel</strong> — mints a fresh token from a logged-in
+              <a href="https://duel.com" target="_blank" rel="noopener">duel.com</a> tab:</p>
+            <div><a id="bmk" class="bmk-btn" href="#" draggable="true">🎰 Chat on Rooted — Duel</a></div>
+            <p class="bmk-note">Can’t drag it? New bookmark, paste this as the address / URL:</p>
             <textarea id="bmkSrc" class="bmk-src" readonly onclick="this.select()"></textarea>
+
+            <p style="margin-top:12px"><strong>VBET</strong> — grabs the token from your open live table
+              (the <code>games.vbet…/LaunchUkGame?…token=…</code> page or its iframe):</p>
+            <div><a id="bmkV" class="bmk-btn" href="#" draggable="true">🎯 Chat on Rooted — VBET</a></div>
+            <p class="bmk-note">Can’t drag it? New bookmark, paste this as the address / URL:</p>
+            <textarea id="bmkVSrc" class="bmk-src" readonly onclick="this.select()"></textarea>
+
             <ol>
-              <li>Open <a href="https://duel.com" target="_blank" rel="noopener">duel.com</a> in this
-                same browser and make sure you’re <strong>logged in</strong>.</li>
-              <li>On any duel.com page, click the <strong>🎰 Chat on Rooted</strong> bookmark. It mints a
-                fresh token and opens this page already signed in as your account.</li>
-              <li>The chat box below now posts as you. Tokens are short-lived — just click the bookmark
-                again whenever chat says the session expired.</li>
+              <li><strong>Duel:</strong> on any logged-in duel.com page, click the Duel bookmark — it mints
+                a fresh token for you.</li>
+              <li><strong>VBET:</strong> open your live table so the game is on screen, then click the VBET
+                bookmark — it reads that table’s token straight from the launch URL.</li>
+              <li>Either way it opens this page signed in as your account and the chat below posts as you.
+                Tokens are short-lived — click the bookmark again if chat says the session expired.</li>
             </ol>
             <p class="bmk-note">Your token stays in your own browser and only ever signs you in as your
               own account. Never share it with anyone.</p>
@@ -78,6 +86,17 @@
       var src = document.getElementById('bmkSrc');
       if (btn) btn.setAttribute('href', oneLine);
       if (src) src.value = oneLine;
+
+      // VBET bookmarklet — the local collector (collect.html) verbatim, retargeted
+      // to rooted. It reads the launch token from ONLY the page URL and iframe src
+      // query params (never a raw-HTML scan, so it can't grab bogus token-shaped
+      // strings), defaults the partner to 333 (VBET), and hands off via ?token=.
+      var VCODE = `(async()=>{try{var a=[location.href].concat([...document.querySelectorAll('iframe')].map(f=>f.src)),r=[];for(var s of a){try{var u=new URL(s,location.href),p=u.searchParams,t=p.get('token');if(t&&/^[a-z0-9]{16,64}$/i.test(t))r.push({t:t,p:p.get('partnerId')||'333'})}catch(e){}}if(!r.length)throw Error('no VBET/BetConstruct token found — open your live table first');var x=r[0],v='https://rooted.cloud/live?token='+encodeURIComponent(x.t)+'&partner='+x.p;try{await navigator.clipboard.writeText(x.t)}catch(e){}var w=window.open(v,'_blank');if(!w)location.href=v}catch(e){alert('VBET capture failed: '+(e&&e.message||e))}})();`;
+      var vLine = 'javascript:' + VCODE;
+      var vBtn = document.getElementById('bmkV');
+      var vSrc = document.getElementById('bmkVSrc');
+      if (vBtn) vBtn.setAttribute('href', vLine);
+      if (vSrc) vSrc.value = vLine;
     })();
   </script>
 </body>
