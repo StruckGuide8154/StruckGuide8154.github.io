@@ -34,11 +34,50 @@
           <button id="connect" type="button">Connect</button>
         </div>
         <p id="authState">Watching is public. Paste your token and Connect — the partner ID is detected automatically so you can chat as your account.</p>
+
+        <details class="bmk">
+          <summary>Get your token in one click →</summary>
+          <div class="bmk-body">
+            <p class="bmk-lead">Skip the copy-paste: save the bookmarklet once, then a single click on any
+              duel.com tab signs you in here as your own account.</p>
+            <p><strong>1.</strong> Drag this button to your bookmarks bar
+              (or right-click it → <em>Bookmark link…</em>):</p>
+            <div><a id="bmk" class="bmk-btn" href="#" draggable="true">🎰 Chat on Rooted</a></div>
+            <p class="bmk-note">Can’t drag it? Create a new bookmark and paste this as the address / URL:</p>
+            <textarea id="bmkSrc" class="bmk-src" readonly onclick="this.select()"></textarea>
+            <ol>
+              <li>Open <a href="https://duel.com" target="_blank" rel="noopener">duel.com</a> in this
+                same browser and make sure you’re <strong>logged in</strong>.</li>
+              <li>On any duel.com page, click the <strong>🎰 Chat on Rooted</strong> bookmark. It mints a
+                fresh token and opens this page already signed in as your account.</li>
+              <li>The chat box below now posts as you. Tokens are short-lived — just click the bookmark
+                again whenever chat says the session expired.</li>
+            </ol>
+            <p class="bmk-note">Your token stays in your own browser and only ever signs you in as your
+              own account. Never share it with anyone.</p>
+          </div>
+        </details>
       </div>
       <div id="chat" class="chat"></div>
     </aside>
   </main>
   <footer>18+ · Entertainment only · Never share your token with another person.</footer>
   <script src="./app.js"></script>
+  <script>
+    // Bookmarklet source lives here (not in the href attribute) so the code's
+    // quotes and slashes never reach the HTML parser. Backslashes are doubled
+    // because this is a template literal; newlines are absent so the whole thing
+    // is one javascript: URL. It mints a fresh launch token from a logged-in
+    // duel.com tab and opens this page with ?token=… — the same in-browser
+    // hand-off app.js already consumes, so the token never leaves the user.
+    (function () {
+      var CODE = `(async()=>{var w=window.open('about:blank','_blank');try{var d='',R=/^[\\da-f]{8}(-[\\da-f]{4}){3}-[\\da-f]{12}$/i;Object.keys(localStorage).some(k=>R.test(d=localStorage.getItem(k)||''));var h={'x-env-class':'green','x-duel-device-identifier':d||'d654d4d0-66f7-46aa-9d2d-00b27960e69d'},g=async u=>(await(await fetch(u,{headers:h,credentials:'include'})).json()),a=[],m=location.pathname.match(/\\/casino\\/games\\/(?:\\d+\\/)?([\\w-]+)/i);if(m)try{a.push((await g('/api/v2/games/'+m[1]+'/data')).data)}catch(e){}for(let q of ['creed','blackjack','roulette','baccarat'])try{let x=await g('/api/v2/games?start=0&search='+q),z=x.data||x;a.push(...(z.items||[]))}catch(e){}let G=a.map(x=>x.game||x).find(x=>{let p=x.provider||{},s=[x.integrator,x.integration,p.name,p.slug].join(' ').toLowerCase();return s.includes('betconstruct')||s.includes('creedroom')}),S=G&&(G.slug||G.code);if(!S)throw Error('no BetConstruct/CreedRoomz game found — open a live casino table first');let x=await g('/api/v2/games/'+S+'/launch?fun_mode=0&mobile=0&lang=eng&view_currency=USD&user_currency=104'),u=new URL(x.data.game_url),t=u.searchParams.get('token');if(!t)throw Error('launch returned no token');var p=u.pathname.split('/').filter(Boolean),v='https://rooted.cloud/live?token='+encodeURIComponent(t)+'&partner='+(p.at(-2)||18772737);if(w)w.location=v;else location.href=v}catch(e){if(w)w.close();alert('Token capture failed: '+(e&&e.message||e)+'  —  open this from a logged-in duel.com tab.')}})();`;
+      var oneLine = 'javascript:' + CODE;
+      var btn = document.getElementById('bmk');
+      var src = document.getElementById('bmkSrc');
+      if (btn) btn.setAttribute('href', oneLine);
+      if (src) src.value = oneLine;
+    })();
+  </script>
 </body>
 </html>
