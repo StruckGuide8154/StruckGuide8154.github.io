@@ -23,14 +23,14 @@
     </section>
     <aside class="side">
       <div class="auth">
-        <label for="provider">Provider / partner ID</label>
+        <label for="provider">Partner ID <span style="opacity:.6">(must match your token — 18772737 Duel, 333 VBET)</span></label>
         <input id="provider" class="provider" inputmode="numeric" value="18772737" autocomplete="off">
         <label for="token">Chat token</label>
         <div class="token-row">
           <input id="token" type="password" autocomplete="off" spellcheck="false" placeholder="Paste hexadecimal launch token">
           <button id="connect" type="button">Connect</button>
         </div>
-        <p id="authState">Watching is public. Add your token to chat as your account.</p>
+        <p id="authState">Watching is public. Set the Partner ID to your token's partner, paste the token, and Connect to chat as your account.</p>
       </div>
       <div id="chat" class="chat"></div>
     </aside>
