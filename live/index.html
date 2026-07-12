@@ -38,22 +38,20 @@
         <details class="bmk">
           <summary>Get your token in one click →</summary>
           <div class="bmk-body">
-            <p class="bmk-lead">Skip the copy-paste: save the bookmarklet once, then a single click signs
-              you in here as your own account. Works on <strong>Duel</strong> and <strong>VBET</strong>
-              (and other BetConstruct live tables).</p>
+            <p class="bmk-lead">Skip the copy-paste: save the bookmarklet once, then a single click on any
+              logged-in duel.com tab signs you in here as your own account.</p>
             <p><strong>1.</strong> Drag this button to your bookmarks bar
               (or right-click it → <em>Bookmark link…</em>):</p>
             <div><a id="bmk" class="bmk-btn" href="#" draggable="true">🎰 Chat on Rooted</a></div>
             <p class="bmk-note">Can’t drag it? Create a new bookmark and paste this as the address / URL:</p>
             <textarea id="bmkSrc" class="bmk-src" readonly onclick="this.select()"></textarea>
             <ol>
-              <li><strong>Duel:</strong> open <a href="https://duel.com" target="_blank" rel="noopener">duel.com</a>
-                logged in, then click the bookmark on any page — it mints a fresh token for you.</li>
-              <li><strong>VBET / other BetConstruct:</strong> open your live table so the game is on screen,
-                then click the bookmark — it grabs that table’s token straight from the page.</li>
-              <li>Either way it opens this page already signed in as your account, and the chat box below
-                posts as you. Tokens are short-lived — just click the bookmark again if chat says the
-                session expired.</li>
+              <li>Open <a href="https://duel.com" target="_blank" rel="noopener">duel.com</a> in this
+                same browser and make sure you’re <strong>logged in</strong>.</li>
+              <li>On any duel.com page, click the <strong>🎰 Chat on Rooted</strong> bookmark. It mints a
+                fresh token and opens this page already signed in as your account.</li>
+              <li>The chat box below now posts as you. Tokens are short-lived — just click the bookmark
+                again whenever chat says the session expired.</li>
             </ol>
             <p class="bmk-note">Your token stays in your own browser and only ever signs you in as your
               own account. Never share it with anyone.</p>
@@ -69,16 +67,12 @@
     // Bookmarklet source lives here (not in the href attribute) so the code's
     // quotes and slashes never reach the HTML parser. Backslashes are doubled
     // because this is a template literal; newlines are absent so the whole thing
-    // is one javascript: URL. Two paths, matching the local collector:
-    //   1. If a launch token is already present on the page/its iframes (VBET and
-    //      other BetConstruct live tables expose it in the game URL), grab it and
-    //      default the partner to 333 (VBET) unless the URL names one.
-    //   2. Otherwise mint a fresh token from a logged-in duel.com tab via the
-    //      games API.
-    // Either way it opens this page with ?token=… — the same in-browser hand-off
-    // app.js already consumes, so the token never leaves the user's browser.
+    // is one javascript: URL. This is the local login-page bookmarklet verbatim —
+    // it mints a fresh launch token from a logged-in duel.com tab — with only the
+    // delivery changed: instead of POSTing to localhost it opens this page with
+    // ?token=…, the same in-browser hand-off app.js already consumes.
     (function () {
-      var CODE = `(async()=>{var w=window.open('about:blank','_blank');try{var srcs=[location.href].concat([...document.querySelectorAll('iframe')].map(f=>f.src)),grab=null;for(var s of srcs){try{var u=new URL(s,location.href),p=u.searchParams,t=p.get('token');if(t&&/^[a-z0-9]{16,64}$/i.test(t)){grab={t:t,p:p.get('partnerId')||''};break}}catch(e){}}if(!grab){var hay=document.documentElement.outerHTML,mm=/token["'=:\\s]+([a-z0-9]{16,64})/i.exec(hay);if(mm)grab={t:mm[1],p:''}}var token='',partner='';if(grab){token=grab.t;partner=grab.p||'333'}else{var d='',R=/^[\\da-f]{8}(-[\\da-f]{4}){3}-[\\da-f]{12}$/i;Object.keys(localStorage).some(k=>R.test(d=localStorage.getItem(k)||''));var h={'x-env-class':'green','x-duel-device-identifier':d||'d654d4d0-66f7-46aa-9d2d-00b27960e69d'},g=async u=>(await(await fetch(u,{headers:h,credentials:'include'})).json()),a=[],cm=location.pathname.match(/\\/casino\\/games\\/(?:\\d+\\/)?([\\w-]+)/i);if(cm)try{a.push((await g('/api/v2/games/'+cm[1]+'/data')).data)}catch(e){}for(let q of ['creed','blackjack','roulette','baccarat'])try{let x=await g('/api/v2/games?start=0&search='+q),z=x.data||x;a.push(...(z.items||[]))}catch(e){}let G=a.map(x=>x.game||x).find(x=>{let pp=x.provider||{},ss=[x.integrator,x.integration,pp.name,pp.slug].join(' ').toLowerCase();return ss.includes('betconstruct')||ss.includes('creedroom')}),S=G&&(G.slug||G.code);if(!S)throw Error('no token on this page and no BetConstruct game in the duel catalog — open your live table first');let x=await g('/api/v2/games/'+S+'/launch?fun_mode=0&mobile=0&lang=eng&view_currency=USD&user_currency=104'),uu=new URL(x.data.game_url);token=uu.searchParams.get('token');var seg=uu.pathname.split('/').filter(Boolean);partner=seg.at(-2)||''}if(!token)throw Error('no launch token found');var v='https://rooted.cloud/live?token='+encodeURIComponent(token)+(partner?'&partner='+partner:'');if(w)w.location=v;else location.href=v}catch(e){if(w)w.close();alert('Token capture failed: '+(e&&e.message||e)+'  —  open a logged-in duel.com or VBET live-game tab.')}})();`;
+      var CODE = `(async()=>{var w=window.open('','_blank');try{var d='',R=/^[\\da-f]{8}(-[\\da-f]{4}){3}-[\\da-f]{12}$/i;Object.keys(localStorage).some(k=>R.test(d=localStorage.getItem(k)||''));var h={'x-env-class':'green','x-duel-device-identifier':d||'d654d4d0-66f7-46aa-9d2d-00b27960e69d'},g=async u=>(await(await fetch(u,{headers:h,credentials:'include'})).json()),a=[],m=location.pathname.match(/\\/casino\\/games\\/(?:\\d+\\/)?([\\w-]+)/i);if(m)try{a.push((await g('/api/v2/games/'+m[1]+'/data')).data)}catch(e){}for(let q of ['creed','blackjack','roulette','baccarat'])try{let x=await g('/api/v2/games?start=0&search='+q),z=x.data||x;a.push(...(z.items||[]))}catch(e){}let G=a.map(x=>x.game||x).find(x=>{let p=x.provider||{},s=[x.integrator,x.integration,p.name,p.slug].join(' ').toLowerCase();return s.includes('betconstruct')||s.includes('creedroom')}),S=G&&(G.slug||G.code);if(!S)throw Error('no BetConstruct/CreedRoomz game found');let x=await g('/api/v2/games/'+S+'/launch?fun_mode=0&mobile=0&lang=eng&view_currency=USD&user_currency=104'),u=new URL(x.data.game_url),t=u.searchParams.get('token');if(!t)throw Error('launch returned no token');let p=u.pathname.split('/').filter(Boolean),v='https://rooted.cloud/live?token='+encodeURIComponent(t)+'&partner='+(p.at(-2)||18772737);try{await navigator.clipboard.writeText(t)}catch(e){}if(w)w.location=v;else alert('Token copied: '+t)}catch(e){if(w)w.close();alert('Token capture failed: '+e.message)}})();`;
       var oneLine = 'javascript:' + CODE;
       var btn = document.getElementById('bmk');
       var src = document.getElementById('bmkSrc');
