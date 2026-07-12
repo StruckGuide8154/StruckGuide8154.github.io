@@ -19,7 +19,10 @@
     <section class="stage" aria-label="Live Duel table feed">
       <div id="video"></div>
       <div id="videoState" class="video-state">Connecting to table feed…</div>
-      <button id="sound" type="button" class="sound">Enable sound</button>
+      <div class="audio">
+        <button id="sound" type="button" title="Unmute">🔇</button>
+        <input id="vol" type="range" min="0" max="100" value="80" aria-label="Volume">
+      </div>
     </section>
     <aside class="side">
       <div class="auth">
