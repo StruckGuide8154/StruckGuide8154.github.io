@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Duel Table Live | Rooted</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./wsproxy.js"></script>
+  <script src="./nanoplayer.min.js"></script>
+  <script src="./chat.js"></script>
+</head>
+<body>
+  <header>
+    <a href="/" class="brand">ROOTED<span>×</span>DUEL</a>
+    <div class="live-pill"><i></i> LIVE TABLE 3815</div>
+  </header>
+  <main>
+    <section class="stage" aria-label="Live Duel table feed">
+      <div id="video"></div>
+      <div id="videoState" class="video-state">Connecting to table feed…</div>
+      <div class="audio">
+        <button id="sound" type="button" title="Unmute">🔇</button>
+        <input id="vol" type="range" min="0" max="100" value="80" aria-label="Volume">
+      </div>
+    </section>
+    <aside class="side">
+      <div class="auth">
+        <label for="provider">Partner ID <span style="opacity:.6">(auto-detected — optional override)</span></label>
+        <input id="provider" class="provider" inputmode="numeric" placeholder="auto-detected from token" autocomplete="off">
+        <label for="token">Chat token</label>
+        <div class="token-row">
+          <input id="token" type="password" autocomplete="off" spellcheck="false" placeholder="Paste hexadecimal launch token">
+          <button id="connect" type="button">Connect</button>
+        </div>
+        <p id="authState">Watching is public. Paste your token and Connect — the partner ID is detected automatically so you can chat as your account.</p>
+
+        <details class="bmk">
+          <summary>Get your token in one click →</summary>
+          <div class="bmk-body">
+            <p class="bmk-lead">Drag the bookmarklet that matches where you play to your bookmarks bar once,
+              then a single click signs you in here as your own account.</p>
+
+            <p><strong>Duel</strong> — mints a fresh token from a logged-in
+              <a href="https://duel.com" target="_blank" rel="noopener">duel.com</a> tab:</p>
+            <div><a id="bmk" class="bmk-btn" href="#" draggable="true">🎰 Chat on Rooted — Duel</a></div>
+            <p class="bmk-note">Can’t drag it? New bookmark, paste this as the address / URL:</p>
+            <textarea id="bmkSrc" class="bmk-src" readonly onclick="this.select()"></textarea>
+
+            <p style="margin-top:12px"><strong>VBET</strong> — grabs the token from your open live table
+              (the <code>games.vbet…/LaunchUkGame?…token=…</code> page or its iframe):</p>
+            <div><a id="bmkV" class="bmk-btn" href="#" draggable="true">🎯 Chat on Rooted — VBET</a></div>
+            <p class="bmk-note">Can’t drag it? New bookmark, paste this as the address / URL:</p>
+            <textarea id="bmkVSrc" class="bmk-src" readonly onclick="this.select()"></textarea>
+
+            <ol>
+              <li><strong>Duel:</strong> on any logged-in duel.com page, click the Duel bookmark — it mints
+                a fresh token for you.</li>
+              <li><strong>VBET:</strong> open your live table so the game is on screen, then click the VBET
+                bookmark — it reads that table’s token straight from the launch URL.</li>
+              <li>Either way it opens this page signed in as your account and the chat below posts as you.
+                Tokens are short-lived — click the bookmark again if chat says the session expired.</li>
+            </ol>
+            <p class="bmk-note">Your token stays in your own browser and only ever signs you in as your
+              own account. Never share it with anyone.</p>
+          </div>
+        </details>
+      </div>
+      <div id="chat" class="chat"></div>
+    </aside>
+  </main>
+  <footer>18+ · Entertainment only · Never share your token with another person.</footer>
+  <script src="./app.js"></script>
+  <script>
+    // Bookmarklet source lives here (not in the href attribute) so the code's
+    // quotes and slashes never reach the HTML parser. Backslashes are doubled
+    // because this is a template literal; newlines are absent so the whole thing
+    // is one javascript: URL. This is the local login-page bookmarklet verbatim —
+    // it mints a fresh launch token from a logged-in duel.com tab — with only the
+    // delivery changed: instead of POSTing to localhost it opens this page with
+    // ?token=…, the same in-browser hand-off app.js already consumes.
+    (function () {
+      var CODE = `(async()=>{var w=window.open('','_blank');try{var d='',R=/^[\\da-f]{8}(-[\\da-f]{4}){3}-[\\da-f]{12}$/i;Object.keys(localStorage).some(k=>R.test(d=localStorage.getItem(k)||''));var h={'x-env-class':'green','x-duel-device-identifier':d||'d654d4d0-66f7-46aa-9d2d-00b27960e69d'},g=async u=>(await(await fetch(u,{headers:h,credentials:'include'})).json()),a=[],m=location.pathname.match(/\\/casino\\/games\\/(?:\\d+\\/)?([\\w-]+)/i);if(m)try{a.push((await g('/api/v2/games/'+m[1]+'/data')).data)}catch(e){}for(let q of ['creed','blackjack','roulette','baccarat'])try{let x=await g('/api/v2/games?start=0&search='+q),z=x.data||x;a.push(...(z.items||[]))}catch(e){}let G=a.map(x=>x.game||x).find(x=>{let p=x.provider||{},s=[x.integrator,x.integration,p.name,p.slug].join(' ').toLowerCase();return s.includes('betconstruct')||s.includes('creedroom')}),S=G&&(G.slug||G.code);if(!S)throw Error('no BetConstruct/CreedRoomz game found');let x=await g('/api/v2/games/'+S+'/launch?fun_mode=0&mobile=0&lang=eng&view_currency=USD&user_currency=104'),u=new URL(x.data.game_url),t=u.searchParams.get('token');if(!t)throw Error('launch returned no token');let p=u.pathname.split('/').filter(Boolean),v='https://rooted.cloud/live?token='+encodeURIComponent(t)+'&partner='+(p.at(-2)||18772737);try{await navigator.clipboard.writeText(t)}catch(e){}if(w)w.location=v;else alert('Token copied: '+t)}catch(e){if(w)w.close();alert('Token capture failed: '+e.message)}})();`;
+      var oneLine = 'javascript:' + CODE;
+      var btn = document.getElementById('bmk');
+      var src = document.getElementById('bmkSrc');
+      if (btn) btn.setAttribute('href', oneLine);
+      if (src) src.value = oneLine;
+
+      // VBET bookmarklet — the local collector (collect.html) verbatim, retargeted
+      // to rooted. It reads the launch token from ONLY the page URL and iframe src
+      // query params (never a raw-HTML scan, so it can't grab bogus token-shaped
+      // strings), defaults the partner to 333 (VBET), and hands off via ?token=.
+      var VCODE = `(async()=>{try{var a=[location.href].concat([...document.querySelectorAll('iframe')].map(f=>f.src)),r=[];for(var s of a){try{var u=new URL(s,location.href),p=u.searchParams,t=p.get('token');if(t&&/^[a-z0-9]{16,64}$/i.test(t))r.push({t:t,p:p.get('partnerId')||'333'})}catch(e){}}if(!r.length)throw Error('no VBET/BetConstruct token found — open your live table first');var x=r[0],v='https://rooted.cloud/live?token='+encodeURIComponent(x.t)+'&partner='+x.p;try{await navigator.clipboard.writeText(x.t)}catch(e){}var w=window.open(v,'_blank');if(!w)location.href=v}catch(e){alert('VBET capture failed: '+(e&&e.message||e))}})();`;
+      var vLine = 'javascript:' + VCODE;
+      var vBtn = document.getElementById('bmkV');
+      var vSrc = document.getElementById('bmkVSrc');
+      if (vBtn) vBtn.setAttribute('href', vLine);
+      if (vSrc) vSrc.value = vLine;
+    })();
+  </script>
+</body>
+</html>
