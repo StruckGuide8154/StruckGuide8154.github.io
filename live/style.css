@@ -96,7 +96,9 @@ footer{flex:0 0 auto;padding:11px 20px;text-align:center;color:#69736f;font-size
   body{height:auto;overflow:auto}
   main{grid-template-columns:minmax(0,1fr);gap:12px;padding:12px}
   .stage{height:56vw;min-height:200px}
-  .chat{height:min(58vh,460px)}
+  .side{overflow:visible}
+  .auth{flex:0 0 auto}
+  .chat{flex:0 0 auto;height:min(58vh,460px)}
 }
 @media(max-width:520px){
   header{padding:0 14px;height:54px}
