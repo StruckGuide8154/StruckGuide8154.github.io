@@ -5,19 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
   <title>Duel Table Live | Rooted</title>
-  <script>
-    // Set this before the stylesheet paints so a returning mobile user never
-    // sees the sign-in form flash while their tab session is being restored.
-    try {
-      if (sessionStorage.getItem('rooted.live.sid')) {
-        document.documentElement.classList.add('is-restoring');
-      }
-    } catch (_) {}
-  </script>
-  <link rel="stylesheet" href="./style.css?v=mobile-chat-2">
+  <link rel="stylesheet" href="./style.css?v=f3c17f5">
   <script src="./wsproxy.js"></script>
   <script src="./nanoplayer.min.js"></script>
-  <script src="./chat.js?v=mobile-chat-2"></script>
+  <script src="./chat.js"></script>
 </head>
 <body>
   <header>
@@ -34,11 +25,6 @@
       </div>
     </section>
     <aside class="side">
-      <div class="mobile-session" aria-live="polite">
-        <span class="mobile-session-dot" aria-hidden="true"></span>
-        <span id="mobileSessionText">Restoring your session…</span>
-        <button id="changeAccount" type="button">Change</button>
-      </div>
       <div class="auth">
         <label for="provider">Partner ID <span style="opacity:.6">(auto-detected — optional override)</span></label>
         <input id="provider" class="provider" inputmode="numeric" placeholder="auto-detected from token" autocomplete="off">
@@ -84,7 +70,7 @@
     </aside>
   </main>
   <footer>18+ · Entertainment only · Never share your token with another person.</footer>
-  <script src="./app.js?v=mobile-chat-2"></script>
+  <script src="./app.js"></script>
   <script>
     // Bookmarklet source lives here (not in the href attribute) so the code's
     // quotes and slashes never reach the HTML parser. Backslashes are doubled
