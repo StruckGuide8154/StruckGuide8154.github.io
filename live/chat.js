@@ -76,9 +76,12 @@
     function setTok(t) { tok.textContent = t; }
 
     // --- message list ------------------------------------------------------
-    var byId = {}, order = [];
+    var byId = {}, order = [], nodes = {};
     function nearBottom() { return msgs.scrollHeight - msgs.scrollTop - msgs.clientHeight < 40; }
-    function scrollDown() { msgs.scrollTop = msgs.scrollHeight; }
+    function scrollDown(smooth) {
+      if (smooth && msgs.scrollTo) msgs.scrollTo({ top: msgs.scrollHeight, behavior: 'smooth' });
+      else msgs.scrollTop = msgs.scrollHeight;
+    }
 
     function renderMsg(m) {
       var div = document.createElement('div');
@@ -98,33 +101,47 @@
       div.textContent = text;
       return div;
     }
-    function repaint() {
-      var stick = nearBottom();
-      msgs.innerHTML = '';
-      for (var i = 0; i < order.length; i++) {
-        var m = byId[order[i]];
-        if (m && m.__sys) msgs.appendChild(sysLine(m.Body));
-        else if (m) msgs.appendChild(renderMsg(m));
+    function makeNode(m, animate) {
+      var node = m.__sys ? sysLine(m.Body) : renderMsg(m);
+      if (animate) node.classList.add('is-new');
+      return node;
+    }
+    function sameMessage(a, b) {
+      return a && b && a.Body === b.Body && a.NickName === b.NickName && !!a.__sys === !!b.__sys;
+    }
+    function upsert(id, m, animate) {
+      var old = byId[id], node = nodes[id];
+      byId[id] = m;
+      if (!node) {
+        node = makeNode(m, animate);
+        nodes[id] = node;
+        msgs.appendChild(node);
+      } else if (!sameMessage(old, m)) {
+        var replacement = makeNode(m, false);
+        node.replaceWith(replacement);
+        nodes[id] = replacement;
       }
-      if (stick) scrollDown();
     }
     var sysSeq = 0;
     function addSystem(text) {
       var id = 'sys:' + (++sysSeq);
-      byId[id] = { Id: id, Body: text, __sys: true };
       order.push(id);
-      repaint();
+      var stick = nearBottom();
+      upsert(id, { Id: id, Body: text, __sys: true }, true);
+      if (stick) requestAnimationFrame(function () { scrollDown(true); });
     }
     function merge(list) {
       if (!list || !list.length) return;
+      var stick = nearBottom(), added = false;
       for (var i = 0; i < list.length; i++) {
         var m = list[i];
         if (!m) continue;
         var id = m.Id != null ? m.Id : ('k:' + (m.NickName || '') + ':' + (m.Date || ''));
-        if (byId[id] == null) order.push(id);
-        byId[id] = m;
+        var isNew = byId[id] == null;
+        if (isNew) { order.push(id); added = true; }
+        upsert(id, m, isNew && polledOnce);
       }
-      repaint();
+      if (stick && added) requestAnimationFrame(function () { scrollDown(polledOnce); });
     }
 
     // --- session ----------------------------------------------------------
@@ -177,8 +194,14 @@
               return P(window.AGG.command(
                 'get',
                 { langId: 'en', partnerId: chatPartnerId(), controller: ctrl, method: 'GetStartupInfo' },
-                { tableId: tableId }, null, window.AGG.headers({ sid: userSid })))['catch'](function () {})
+                { tableId: tableId }, null, window.AGG.headers({ sid: userSid })))['catch'](function (e) {
+                  if (isSessionErr(e)) {
+                    userSid = '';
+                    if (window.AGG.sessionExpired) window.AGG.sessionExpired();
+                  }
+                })
                 .then(function () {
+                  if (!userSid) { minting = null; setTok('· guest ✓ ' + gsid.slice(0, 8) + '…'); return sid; }
                   useUser = true;
                   minting = null;
                   setTok('· you ✓ ' + userSid.slice(0, 8) + '…');
@@ -255,7 +278,10 @@
       sendBtn.disabled = true;
       call('WriteMessageToChat', { tableId: tableId }, data)
         .then(function () {
-          if (!destroyed) input.value = '';        // clear only on success
+          if (!destroyed) {
+            input.value = '';        // clear only on success
+            poll();                   // show the sent message without a 3s wait
+          }
         }, function (e) {
           if (!destroyed) addSystem('send failed: ' + errText(e));
         })['catch'](function () {})

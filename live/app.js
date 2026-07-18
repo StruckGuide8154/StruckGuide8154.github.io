@@ -4,7 +4,8 @@
   const PROXY = 'https://rgs--livedealerwebsocket-bcapps-org-betconstruct.betconstruct-proxy.duel.net';
   const H5 = {websocket:'wss://bintu-h5live.nanocosmos.de:443/h5live/stream/stream.mp4',hls:'https://bintu-h5live.nanocosmos.de:443/h5live/http/playlist.m3u8',progressive:'https://bintu-h5live.nanocosmos.de:443/h5live/http/stream.mp4'};
   let socket, player, guestSid='', controller='', userSid='', userNick='', chatHandle;
-  const state=document.getElementById('videoState'), auth=document.getElementById('authState');
+  const state=document.getElementById('videoState'), auth=document.getElementById('authState'),mobileSessionText=document.getElementById('mobileSessionText');
+  const SESSION_SID='rooted.live.sid',SESSION_NICK='rooted.live.nick',SESSION_PARTNER='rooted.live.partner';
   const partnerId=()=>Number(document.getElementById('provider').value)||DEFAULT_PARTNER;
   const headers=extra=>Object.assign({'Content-Type':'application/json; charset=utf-8','User-Agent':navigator.userAgent},extra||{});
   function command(method,params,query,data,hdrs){return new Promise((resolve,reject)=>{let done=false,t=setTimeout(()=>{if(!done){done=true;reject({ErrorMessage:'timeout'})}},12000);WsProxySDK.Command(method,params,query||{},data||{},hdrs||{},r=>{if(done)return;done=true;clearTimeout(t);r&&r.ErrorCode?reject(r):resolve(r&&r.Body||r)},e=>{if(done)return;done=true;clearTimeout(t);reject(e)})})}
@@ -17,23 +18,26 @@
   // against each known partner and keep the one that authenticates. Any id typed
   // in the Partner ID box is tried first (manual override / new partners).
   const PARTNER_CANDIDATES=[18772737,333];
-  async function login(){let token=document.getElementById('token').value.trim();if(!/^[a-z0-9]{16,}$/i.test(token)){auth.textContent='Enter a valid hexadecimal launch token.';return}auth.textContent='Detecting partner…';try{await connect();
+  function setSessionState(mode,text){document.documentElement.classList.remove('is-restoring','is-authenticated');if(mode==='restoring')document.documentElement.classList.add('is-restoring');if(mode==='authenticated')document.documentElement.classList.add('is-authenticated');if(mobileSessionText)mobileSessionText.textContent=text||'';}
+  function clearSavedSession(){try{sessionStorage.removeItem(SESSION_SID);sessionStorage.removeItem(SESSION_NICK);sessionStorage.removeItem(SESSION_PARTNER)}catch(e){}}
+  async function login(){let token=document.getElementById('token').value.trim();if(!/^[a-z0-9]{16,}$/i.test(token)){setSessionState('signed-out');auth.textContent='Enter a valid hexadecimal launch token.';return}setSessionState('restoring','Connecting securely…');auth.textContent='Detecting partner…';try{await connect();
     let typed=Number(document.getElementById('provider').value)||0;
     let cands=[typed].concat(PARTNER_CANDIDATES).filter((v,i,a)=>v&&a.indexOf(v)===i);
     let r=null,pid=0,lastErr=null;
     for(let i=0;i<cands.length;i++){auth.textContent='Trying partner '+cands[i]+'…';try{let res=await command('post',{langId:'en',partnerId:cands[i],controller:'Application',method:'InitSession'},null,{ClientCredentials:{Token:token,IsCashDesk:0},PlatformType:'0',PartnerDomain:'https://duel.com',PlayerIp:'127.0.0.1'},headers());if(res&&res.Token){r=res;pid=cands[i];break;}}catch(e){lastErr=e;}}
     if(!r)throw lastErr||Error('no authenticated session returned');
-    document.getElementById('provider').value=pid;userSid=r.Token;userNick=r.NickName||(r.Player&&(r.Player.NickName||r.Player.UserName))||'player';auth.textContent='Connected as '+userNick+' · partner '+pid;mountChat()}catch(e){userSid='';auth.textContent='Token rejected ('+(e.ErrorMessage||e.message||e)+') — is this a live launch token?';}}
+    document.getElementById('provider').value=pid;userSid=r.Token;userNick=r.NickName||(r.Player&&(r.Player.NickName||r.Player.UserName))||'player';try{sessionStorage.setItem(SESSION_SID,userSid);sessionStorage.setItem(SESSION_NICK,userNick);sessionStorage.setItem(SESSION_PARTNER,String(pid))}catch(e){}auth.textContent='Connected as '+userNick+' · partner '+pid;setSessionState('authenticated','Chatting as '+userNick);mountChat()}catch(e){userSid='';clearSavedSession();setSessionState('signed-out');auth.textContent='Token rejected ('+(e.ErrorMessage||e.message||e)+') — is this a live launch token?';if(!chatHandle)mountChat()}}
   function mountChat(){if(chatHandle)try{chatHandle.destroy()}catch(e){}document.getElementById('chat').innerHTML='';chatHandle=StreamChat.mount(document.getElementById('chat'),{tableId:TABLE,title:'Table '+TABLE})}
-  window.AGG={partnerId:partnerId,chatPartnerId:partnerId,command,headers,getSid:()=>guestSid,userSid:()=>userSid,userNick:()=>userNick,focusPanel:()=>{},selectedPanel:()=>null};
+  window.AGG={partnerId:partnerId,chatPartnerId:partnerId,command,headers,getSid:()=>guestSid,userSid:()=>userSid,userNick:()=>userNick,sessionExpired:()=>{userSid='';userNick='';clearSavedSession();setSessionState('signed-out');auth.textContent='Your chat session expired. Connect again to chat as your account.'},focusPanel:()=>{},selectedPanel:()=>null};
   document.getElementById('connect').addEventListener('click',login);document.getElementById('token').addEventListener('keydown',e=>{if(e.key==='Enter')login()});(function(){var btn=document.getElementById('sound'),vol=document.getElementById('vol'),muted=true;
     function apply(){if(!player)return;try{var v=Number(vol.value)/100;if(muted||v===0){player.mute&&player.mute();}else{player.unmute&&player.unmute();player.setVolume&&player.setVolume(v);}var off=muted||v===0;btn.textContent=off?'🔇':'🔊';btn.title=off?'Unmute':'Mute';}catch(e){}}
     btn.addEventListener('click',function(){muted=!muted;if(!muted&&Number(vol.value)===0)vol.value=80;apply();});
     vol.addEventListener('input',function(){if(Number(vol.value)>0)muted=false;apply();});})();
-  startFeed().then(mountChat);
+  startFeed().then(function(){if(!chatHandle)mountChat()});
   // Direct hand-off: a fresh token can arrive via ?token=… (or #token=…) so a
   // bookmarklet on duel.com can mint and open this page in one step — no
   // localhost, and the token is never routed through the consuming token list.
   // Strip it from the address bar afterwards so it isn't left in history.
-  (function(){var p=new URLSearchParams(location.search),h=new URLSearchParams((location.hash||'').replace(/^#/,''));var token=p.get('token')||h.get('token');var partner=p.get('partner')||p.get('partnerId')||h.get('partner');if(partner){var pe=document.getElementById('provider');if(pe)pe.value=partner;}if(!token)return;var el=document.getElementById('token');if(el)el.value=token.trim();try{history.replaceState(null,'',location.pathname)}catch(e){}login();})();
+  document.getElementById('changeAccount').addEventListener('click',function(){clearSavedSession();userSid='';userNick='';setSessionState('signed-out');var tokenEl=document.getElementById('token');if(tokenEl){tokenEl.value='';setTimeout(function(){tokenEl.focus()},0)}});
+  (function(){var p=new URLSearchParams(location.search),h=new URLSearchParams((location.hash||'').replace(/^#/,''));var token=p.get('token')||h.get('token'),partner=p.get('partner')||p.get('partnerId')||h.get('partner'),savedSid='',savedNick='';try{savedSid=sessionStorage.getItem(SESSION_SID)||'';savedNick=sessionStorage.getItem(SESSION_NICK)||'';partner=partner||sessionStorage.getItem(SESSION_PARTNER)||''}catch(e){}if(partner){var pe=document.getElementById('provider');if(pe)pe.value=partner;}if(token){var el=document.getElementById('token');if(el)el.value=token.trim();try{history.replaceState(null,'',location.pathname)}catch(e){}setSessionState('restoring','Connecting securely…');login();return}if(savedSid){userSid=savedSid;userNick=savedNick||'player';auth.textContent='Connected as '+userNick+' · partner '+(partner||DEFAULT_PARTNER);setSessionState('authenticated','Chatting as '+userNick);return}setSessionState('signed-out');})();
 })();
