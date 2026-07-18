@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Rooted Live</title>
+  <desc id="desc">Watch the table. Join the conversation.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07070d"/>
+      <stop offset="0.58" stop-color="#0d0920"/>
+      <stop offset="1" stop-color="#171038"/>
+    </linearGradient>
+    <radialGradient id="violetGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#9b72ff" stop-opacity=".42"/>
+      <stop offset=".5" stop-color="#7c3aed" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#7c3aed" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="table" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#241650"/>
+      <stop offset="1" stop-color="#0d0a1b"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6d40d8"/>
+      <stop offset=".5" stop-color="#b494ff"/>
+      <stop offset="1" stop-color="#7147df"/>
+    </linearGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#07070d" stop-opacity=".97"/>
+      <stop offset=".65" stop-color="#07070d" stop-opacity=".68"/>
+      <stop offset="1" stop-color="#07070d" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" fill="none" stroke="#a78bfa" stroke-opacity=".055" stroke-width="1"/>
+    </pattern>
+    <filter id="blur32" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="32"/>
+    </filter>
+    <filter id="blur14" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+    <filter id="softShadow" x="-20%" y="-30%" width="140%" height="180%">
+      <feDropShadow dx="0" dy="20" stdDeviation="22" flood-color="#000" flood-opacity=".75"/>
+    </filter>
+    <clipPath id="frame"><rect width="1200" height="630" rx="0"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="630" fill="url(#bg)"/>
+    <rect width="1200" height="630" fill="url(#grid)"/>
+    <ellipse cx="930" cy="300" rx="440" ry="340" fill="url(#violetGlow)"/>
+    <path d="M834-40L1014 670" stroke="#8b5cf6" stroke-opacity=".11" stroke-width="90" filter="url(#blur32)"/>
+    <path d="M1032-70L1190 650" stroke="#e879f9" stroke-opacity=".07" stroke-width="55" filter="url(#blur32)"/>
+
+    <g transform="translate(800 377) rotate(-7)" filter="url(#softShadow)">
+      <ellipse cx="125" cy="110" rx="365" ry="132" fill="#5b21b6" fill-opacity=".28" filter="url(#blur32)"/>
+      <ellipse cx="125" cy="74" rx="386" ry="150" fill="#080710" stroke="#34245f" stroke-width="36"/>
+      <ellipse cx="125" cy="62" rx="353" ry="126" fill="url(#table)" stroke="url(#rim)" stroke-width="7"/>
+      <ellipse cx="125" cy="62" rx="316" ry="100" fill="none" stroke="#a78bfa" stroke-opacity=".34" stroke-width="2"/>
+      <path d="M-164 60C-38 12 280 7 417 56" fill="none" stroke="#d8ccff" stroke-opacity=".12" stroke-width="3"/>
+      <path d="M-154 88C-1 132 284 134 410 83" fill="none" stroke="#050509" stroke-opacity=".7" stroke-width="20"/>
+      <path d="M-230 109C-80 194 325 192 477 104" fill="none" stroke="#7c3aed" stroke-opacity=".56" stroke-width="7" filter="url(#blur14)"/>
+    </g>
+
+    <circle cx="1087" cy="137" r="40" fill="#ff435d" fill-opacity=".12" filter="url(#blur14)"/>
+    <circle cx="1087" cy="137" r="7" fill="#ff4f68"/>
+    <circle cx="1087" cy="137" r="13" fill="none" stroke="#ff4f68" stroke-opacity=".26"/>
+
+    <rect x="0" y="0" width="700" height="630" fill="url(#fade)"/>
+    <rect x="62" y="55" width="4" height="33" rx="2" fill="#8b5cf6"/>
+    <text x="82" y="82" fill="#a78bfa" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="21" font-weight="800" letter-spacing="5">ROOTED</text>
+
+    <g transform="translate(62 134)">
+      <rect width="147" height="38" rx="19" fill="#ffffff" fill-opacity=".065" stroke="#ffffff" stroke-opacity=".11"/>
+      <circle cx="21" cy="19" r="6" fill="#ff4f68"/>
+      <text x="39" y="25" fill="#fff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="800" letter-spacing="1.4">LIVE NOW</text>
+    </g>
+
+    <text x="58" y="289" fill="#faf9ff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="76" font-weight="800" letter-spacing="-2">ROOTED</text>
+    <text x="58" y="369" fill="#8b5cf6" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="76" font-weight="800" letter-spacing="-2">LIVE</text>
+    <text x="62" y="426" fill="#cbc5da" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="27" font-weight="400">Watch the table.</text>
+    <text x="62" y="462" fill="#cbc5da" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="27" font-weight="400">Join the conversation.</text>
+
+    <path d="M62 516H126" stroke="#8b5cf6" stroke-width="5" stroke-linecap="round"/>
+    <text x="62" y="560" fill="#928ca5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="700" letter-spacing="1.4">18+  /  ENTERTAINMENT ONLY</text>
+
+    <rect x="1" y="1" width="1198" height="628" fill="none" stroke="#ffffff" stroke-opacity=".07" stroke-width="2"/>
+  </g>
+</svg>
